@@ -1,5 +1,5 @@
-##需要安装的
-```brew install allure-commandline  （生成allure报告的工具）```
+## 需要安装的
+```brew install allure-commandline``` （生成allure报告的工具）
 通过pycharm直接安装requment.txt里面的第三方包
 ```
 selenium==3.14.1
@@ -10,20 +10,20 @@ allure-pytest
 flaky
 pytest-sugar
 ```
-##常用命令
+## 常用命令
 ```
 adb devices
 adb kill-server
 adb shell "dumpsys window w | grep name="  (获取当前页面的Activity)
 ```
 
-#快速使用
+# 快速使用
 
-###检测环境：
+### 检测环境：
 在apk中添加要测的app包
 运行env_check.py检测环境
 
-###原理讲解
+### 原理讲解
 **0：分层概念**
 page集、page类、page类加载方法（load_android、load_ios）、page元素、元素的属性
 **1、配置文件**
@@ -57,8 +57,8 @@ class CategoryListPage(BasePage):
     def load_android(self):
         self.activity="com.jumei.list.category.CategoryListActivity"
 
-        self.搜索输入框=get_locator(self.name,"搜索输入框",'id','com.jm.android.jumei:id/search_input')
-        self.搜索按钮=get_locator(self.name,"搜索按钮",'id','com.jm.android.jumei:id/search_bt')
+    self.搜索输入框=get_locator(self.name,"搜索输入框",'id','com.jm.android.jumei:id/search_input')
+    self.搜索按钮=get_locator(self.name,"搜索按钮",'id','com.jm.android.jumei:id/search_bt')
 ```
 get_locator方法返回元素实例（dict），元素包含有属性：page名、元素名、元素定位方式、定位参数、是否是动态（默认为静态），传参时一般只需要传page名、元素名、元素定位方式、定位参数
 
@@ -109,10 +109,9 @@ text 通过driver.find_element找到后再执行send_key
 swip_down向下滑动
 is_text_displayed : 判断当前页面是否有对应传参文本
 
-##运行方式：
+## 运行方式：
 1、执行运行run.py
-2、
-run all case:`
+2、run all case:
     ```python3 run.py```
 run one module case:
     ```python3 run.py test/test_home.py```
