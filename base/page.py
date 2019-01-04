@@ -32,41 +32,70 @@ class BasePage(metaclass=abc.ABCMeta):
 
 
     #获取定位器对象(字典结构)，定位器对象返回的就是元素本身，包含对应元素属性
-    #元素属性有：元素名、元素的定位方式、对应定位方式的值、是否是动态元素、查找元素的等待时间、元素的页面名
-    def get_locator(self,elename, type, value, dynamic=False,timeOutInSeconds=None,page=None):
+    #元素属性有：元素名、元素的定位方式、对应定位方式的值、是否是动态元素、出现该元素的前置操作（默认为空，填写page类的前置操作方法名）、查找元素的等待时间、元素的页面名
+    def  get_locator(self,elename, type, value, dynamic=False,switch=None,timeOutInSeconds=None,page=None):
+        #TODO 优化
         if page==None:
             page=self.name
 
-        locator=dict(page=page, name=elename, type=type, value=value, dynamic=dynamic)
+        locator=dict(name=elename, type=type, value=value, dynamic=dynamic,switch=switch,page=page)
         if timeOutInSeconds!=None:
             locator.update(timeOutInSeconds=timeOutInSeconds)
         return locator
+
+    def newlocator(self,locator:dict,map:dict):
+        #动态修改定位元素方式
+        for key,value in map.items():
+            locator[key]=value
+
+        return locator
+
+
+    def pageinto(self,action):
+        pass
+
+
+
+def check_pageset(Pagesset,action: ElementActions):
+    #参数Pagesset为元素是Pages的list
+
+    for Pages in Pagesset:
+
+        log.info('\n ++++++检测静态页面集： {}++++++\n'.format(Pages.__name__))
+
+        check_page(Pages,action)
 
 
 
 
 def check_page(Pages,action: ElementActions):
-    #只能检测静态页面（即可用activity直接跳转的）
 
-    static_pagelist=getattr(Pages,'static_pagelist')
-    page_names=static_pagelist()
+    #只能检测静态页面,即有固定进入方法的：pageinto
 
-    for page_name in page_names:
+    pagesname_list=get_attrsname(Pages)
+
+    for page_name in pagesname_list:
         page=getattr(Pages,page_name)
-        elements_name=get_attrsname(page)
 
-        #进入可通过activity跳转的对应页面
-        if hasattr(page,'activity')==False:
+
+        #如果为静态页面时可通过page的跳转方法进入对应页面
+        if hasattr(page,'pageinto')==False:
             continue
         else:
-            action.start_activity(getattr(page,'activity'))
+            log.info(' ----检测静态页面： {}----'.format(page_name))
+            elements_name = get_attrsname(page)
+            getattr(page,'pageinto')(action)
 
             # 对元素进行遍历查询
             for element_name in elements_name:
                 element=getattr(page,element_name)
                 if isinstance(element,dict):
                     if element.get('dynamic')==False:
-                        action.check_ele(locator=element)
+                        if element.get('switch')!=None:
+                            #如果该元素在当前页面有前置步骤，则执行该前置步骤
+                            getattr(page,element.get('switch'))(action)
+
+                        action.is_element_exist(locator=element)
 
 
 

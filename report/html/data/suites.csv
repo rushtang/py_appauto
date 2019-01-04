@@ -1,0 +1,5 @@
+"Status","Name","Duration in ms","Description"
+"passed","tests.test_usercenter.test_returngoods.Test_favourite#test_case1","98446",""
+"passed","tests.test_usercenter.test_returngoods.Test_productbrowse#test_case1","76090",""
+"passed","tests.test_usercenter.test_returngoods.Test_favourite#test_setenv","0",""
+"passed","tests.test_usercenter.test_returngoods.Test_debug#test_case1","23483",""

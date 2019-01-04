@@ -1,0 +1,32 @@
+INFO 11:57:19  当前执行的appium相关配置为：{'platformName': 'Android', 'platformVersion': '6.0', 'deviceName': '192.168.56.101:5555', 'udid': '192.168.56.101:5555', 'systemPort': 8201, 'app': '/Users/jm-yf/PycharmProjects/appauto/apk/jumei_xiaomi_7305.apk', 'clearSystemFiles': True, 'appActivity': 'com.jm.android.jumei.home.activity.StartActivity', 'appPackage': 'com.jm.android.jumei', 'automationName': 'UIAutomator2', 'noSign': True, 'recreateChromeDriverSessions': True, 'unicodeKeyboard': 'True', 'noReset': True, 'fullReset': False, 'newCommandTimeout': 100} 
+
+INFO 11:57:34  start_activity:    com.jm.android.jumei.home.activity.NewHomeActivity 
+
+INFO 11:57:55  ————————————————————————执行用例 ----------——————————————
+INFO 11:57:55  start_activity:    com.jm.android.jumei.home.activity.NewHomeActivity 
+
+INFO 11:58:15  通过坐标(987.0,1483.0), 成功点击 页面【特卖首页】的元素【进入用户中心按钮】 
+
+INFO 11:58:17  查找 页面【用户中心页】的元素【用户中心列表_列表1】 
+
+INFO 11:58:19  页面【用户中心页】的元素【<appium.webdriver.webelement.WebElement (session="fefc9fd7-28c5-4683-9d60-52ecae222f18", element="d33f9446-8440-4086-9b1f-f8f8c3cd5d60")>】未能查询到查找子节点 元素【待发货】
+ locator_child{'name': '待发货', 'type': 'xpath', 'value': "//android.widget.TextView[@text='待发货']", 'dynamic': False, 'switch': None, 'page': '用户中心页'} 
+
+INFO 11:58:19  [] 
+
+INFO 11:58:19  页面【用户中心页】的元素【<appium.webdriver.webelement.WebElement (session="fefc9fd7-28c5-4683-9d60-52ecae222f18", element="bc950cdf-496a-4636-a302-d7dea783052b")>】未能查询到查找子节点 元素【待发货】
+ locator_child{'name': '待发货', 'type': 'xpath', 'value': "//android.widget.TextView[@text='待发货']", 'dynamic': False, 'switch': None, 'page': '用户中心页'} 
+
+INFO 11:58:19  [] 
+
+INFO 11:58:19  页面【用户中心页】的元素【<appium.webdriver.webelement.WebElement (session="fefc9fd7-28c5-4683-9d60-52ecae222f18", element="cad089a6-49f9-4de0-9b99-7524e412a5e8")>】未能查询到查找子节点 元素【待发货】
+ locator_child{'name': '待发货', 'type': 'xpath', 'value': "//android.widget.TextView[@text='待发货']", 'dynamic': False, 'switch': None, 'page': '用户中心页'} 
+
+INFO 11:58:19  [] 
+
+INFO 11:58:19  未找到元素, elelist_parent:[<appium.webdriver.webelement.WebElement (session="fefc9fd7-28c5-4683-9d60-52ecae222f18", element="d33f9446-8440-4086-9b1f-f8f8c3cd5d60")>, <appium.webdriver.webelement.WebElement (session="fefc9fd7-28c5-4683-9d60-52ecae222f18", element="bc950cdf-496a-4636-a302-d7dea783052b")>, <appium.webdriver.webelement.WebElement (session="fefc9fd7-28c5-4683-9d60-52ecae222f18", element="cad089a6-49f9-4de0-9b99-7524e412a5e8")>] 
+
+INFO 11:58:19  None
+INFO 11:58:19  sleep等待 1 s  
+
+INFO 11:58:20  ————————————————————————该用例执行结束 ----------——————————————

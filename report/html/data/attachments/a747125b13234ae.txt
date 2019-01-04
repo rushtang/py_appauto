@@ -1,0 +1,74 @@
+INFO 17:41:35  当前执行的appium相关配置为：{'platformName': 'Android', 'platformVersion': '6.0', 'deviceName': '192.168.56.101:5555', 'udid': '192.168.56.101:5555', 'systemPort': 8201, 'app': '/Users/jm-yf/PycharmProjects/appauto/apk/jumei_xiaomi_7305.apk', 'clearSystemFiles': True, 'appActivity': 'com.jm.android.jumei.home.activity.StartActivity', 'appPackage': 'com.jm.android.jumei', 'automationName': 'UIAutomator2', 'noSign': True, 'recreateChromeDriverSessions': True, 'unicodeKeyboard': 'True', 'noReset': True, 'fullReset': False, 'newCommandTimeout': 100} 
+
+INFO 17:41:51  start_activity:    com.jm.android.jumei.home.activity.NewHomeActivity 
+
+INFO 17:42:11  ————————————————————————执行用例 ----------——————————————
+INFO 17:42:11  start_activity:    com.jm.android.jumei.home.activity.NewHomeActivity 
+
+INFO 17:42:31  通过坐标(987.0,1483.0), 成功点击 页面【特卖首页】的元素【进入用户中心按钮】 
+
+INFO 17:42:33  查找 页面【用户中心页】的元素【注册登陆】 
+
+INFO 17:42:35  app已登陆 
+
+INFO 17:42:35  [点击]  页面【用户中心页】的元素【浏览记录】 
+
+INFO 17:42:38  已查找到  页面【浏览记录页】的元素【编辑】 
+
+INFO 17:42:38  [点击]  页面【浏览记录页】的元素【编辑】 
+
+INFO 17:42:39  查找 页面【浏览记录编辑页】的元素【编辑页浏览商品选择按钮】 
+
+INFO 17:42:39  [点击]1次元素 <appium.webdriver.webelement.WebElement (session="ef41a7ad-e421-42c0-bbd0-17829dd609c4", element="f017cf57-baba-4d22-8a66-17b6413b33d2")> 
+
+INFO 17:42:40  [点击]  页面【浏览记录编辑页】的元素【删除】 
+
+INFO 17:42:40  [点击]  页面【浏览记录编辑页】的元素【删除弹窗确定按钮】 
+
+INFO 17:42:41  当前浏览记录为空~ 
+
+INFO 17:42:41  start_activity:    com.jumei.list.category.CategoryListActivity 
+
+INFO 17:42:46  sleep等待 0.5 s  
+
+INFO 17:42:48  在【分类列表搜索页】页面 对元素【搜索输入框】输入文本【口红】 
+
+INFO 17:42:49  [点击]  页面【分类列表搜索页】的元素【搜索按钮】 
+
+INFO 17:42:50  sleep等待 1 s  
+
+INFO 17:42:51  查找 页面【搜索后列表页】的元素【商品项标题】 
+
+INFO 17:42:56  [点击]1次元素 <appium.webdriver.webelement.WebElement (session="ef41a7ad-e421-42c0-bbd0-17829dd609c4", element="12926683-cd00-47f4-8da9-64f34896bc3d")> 
+
+INFO 17:42:56  sleep等待 2 s  
+
+INFO 17:43:00  ---------向下滑动---------- 
+
+INFO 17:43:00  查找 页面【商品详情页】的元素【商品参数列表】 
+
+INFO 17:43:00  页面【商品详情页】的元素【<appium.webdriver.webelement.WebElement (session="ef41a7ad-e421-42c0-bbd0-17829dd609c4", element="33abc62a-8122-427c-aa11-5ebe33744cc3")>】串联查找
+ element:商品参数列表_商品参数值s 
+
+INFO 17:43:01  start_activity:    com.jm.android.jumei.home.activity.NewHomeActivity 
+
+INFO 17:43:20  通过坐标(987.0,1483.0), 成功点击 页面【特卖首页】的元素【进入用户中心按钮】 
+
+INFO 17:43:22  查找 页面【用户中心页】的元素【用户中心列表】 
+
+INFO 17:43:24  页面【用户中心页】的元素【<appium.webdriver.webelement.WebElement (session="ef41a7ad-e421-42c0-bbd0-17829dd609c4", element="855a5feb-bb74-4873-a409-2d648b9f0537")>】串联查找
+ element:用户中心列表_列表1 
+
+INFO 17:43:24  页面【用户中心页】的元素【<appium.webdriver.webelement.WebElement (session="ef41a7ad-e421-42c0-bbd0-17829dd609c4", element="69373b75-4911-475e-9394-e36173321b41")>】串联查找
+ element:相关数量 
+
+INFO 17:43:24  当前浏览记录值为1 
+
+INFO 17:43:24  断言成功：浏览记录正常+1 
+
+INFO 17:43:24  [点击]  页面【用户中心页】的元素【浏览记录】 
+
+INFO 17:43:27  已查找到  页面【浏览记录页】的元素【当天浏览商品名】
+INFO 17:43:27  sleep等待 1 s  
+
+INFO 17:43:29  ————————————————————————该用例执行结束 ----------——————————————

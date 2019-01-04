@@ -4,9 +4,10 @@ from appium import webdriver
 from appium.webdriver.common.touch_action import TouchAction
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions
 from base.utils import log,singleton,Waittime_count
 import allure,time
-from base.exceptions import NotFoundElementError,NotFoundTextError
+from base.verify import NotFoundElementError,NotFoundTextError
 from base.environment import EnvironmentAndroid
 
 
@@ -19,9 +20,13 @@ from base.environment import EnvironmentAndroid
 class ElementActions:
     def __init__(self, driver: webdriver.Remote):
         self.driver = driver
-        self.width = self.driver.get_window_size()['width']
-        self.height = self.driver.get_window_size()['height']
         self.env = EnvironmentAndroid()
+        #通过driver.get_window_size()获取的分辨率会不准确，所以读取配置的Resolution
+        self.Resolution =self.env.current_device.get('Resolution')
+
+        self.width =self.Resolution[0]
+        self.height =self.Resolution[1]
+
     def reset(self, driver: webdriver.Remote):
         """因为是单例,所以当driver变动的时候,需要重置一下driver
 
@@ -30,14 +35,6 @@ class ElementActions:
 
         """
         self.driver = driver
-        self.width = self.driver.get_window_size()['width']
-        self.height = self.driver.get_window_size()['height']
-        return self
-    def reset_attribute(self):
-        #重置坐标
-        log.info("重置driver坐标")
-        self.width = self.driver.get_window_size()['width']
-        self.height = self.driver.get_window_size()['height']
 
 
 
@@ -55,7 +52,8 @@ class ElementActions:
         message='start_activity:    '+app_activity
         log.info(message)
         self.driver.start_activity(self.env.appium.get("appPackage"), app_activity, **opts)
-        self.sleep(2,islog=False)
+
+        self.driver.wait_activity(app_activity, 10, interval=0.3)
         return self
 
 
@@ -68,6 +66,45 @@ class ElementActions:
 
     def back_press(self):
         self._send_key_event('KEYCODE_BACK')
+
+
+    def tap(self,locator):
+        #获取当前屏幕的分辨率，元素通过相对位置点击
+        """
+
+        :param locator: value格式为 "x,y"
+        :return:
+        """
+        if locator.get('type')!="tap":
+            log.error('定位方式错误，不能通过坐标位置定位点击 \nlocator: {}'.format(str(locator)))
+        else:
+            position=locator.get('value').split(',')
+            x=int(position[0])*self.width/1080
+            y=int(position[1])*self.height/1920
+            positions=[(x,y)]
+            log.info("通过坐标({},{}), 成功点击 页面【{}】的元素【{}】".format(x,y,locator.get('page'),locator.get('name')))
+
+            self.driver.tap(positions,duration=400)
+
+    def long_press(self,locator,time=2000):
+        #长按操作，locator的type为tap时支持坐标位置长按
+        """
+        :param locator:
+        :param time: 单位毫秒
+        :return:
+        """
+        if locator.get('type')=="tap":
+            position = locator.get('value').split(',')
+            x = int(position[0]) * self.width / 1080
+            y = int(position[1]) * self.height / 1920
+            TouchAction(self.driver).long_press(x=x,y=y,duration=time).perform()
+
+        else:
+            ele=self._find_element(locator)
+            TouchAction(self.driver).long_press(el=ele, duration=time).perform()
+
+        log.info("[长按] 页面【{}】的元素【{}】".format(locator.get('page'), locator.get('name')))
+
 
 
 
@@ -123,39 +160,122 @@ class ElementActions:
         return self
 
 
-    def find_ele_recursive(self,element,locator,is_Multiple=False,wait=5):
-        # 通过元素对象来串联查找,返回元素对象  (属于通过父结点元素递归查找子结点元素)
-        # 需要查找多个时，返回list
-        #当前串联查询不执行name的定位方式
-        """
-        Args:
-            element: self.driver.find_element函数的返回值，即元素对象
-            locator:  定位器对象
-            is_Multiple: 是否查找多个，查找单个时只会返回第一个找到的元素对象
-        """
-        if 'timeOutInSeconds' in locator:
-            wait = locator['timeOutInSeconds']
-        else:
-            wait = wait
 
-        value = locator['value']
-        ltype = locator['type']
-        log.info("串联查找页面【{}】的元素【{}】\n element:{}".format(locator.get("page"), locator.get("name"),element))
+    def find_ele_child(self, locator_parent, locator_child, is_Multiple=False, wait=8):
+        # 通过父结点元素查找子结点元素
+        #定位方式限制：如果子节点定位方式为name时，父节点定位方式只能为id、name、class name
+
+        """
+        :param locator_parent: 父节点定位器对象
+        :param locator_child:  子节点定位器对象
+        :param is_Multiple: 是否查找多个
+        :param wait:
+        :return: 查找不到时返回None或者[]
+        """
+
+        log.info("页面【{}】的元素【{}】查找子节点 元素【{}】".format(locator_parent.get("page"),locator_parent.get("name"),locator_child.get('name')))
+
+        if locator_child['type'] != 'name':
+            element_parent = self.find_ele(locator_parent)
+            self.find_ele_child_byelement(element_parent,locator_child,is_Multiple,wait)
+        else:
+            self._find_ele_child_byname(locator_parent, locator_child, is_Multiple,wait)
+
+
+    def find_ele_child_byelement(self, element_parent, locator_child, is_Multiple=False, wait=8):
+        value_child, type_child = locator_child['value'], locator_child['type']
+
         try:
             WebDriverWait(self.driver, wait).until(
-                lambda driver: self._get_element_by_type(driver, locator, False).__len__() > 0)
+                lambda: element_parent.find_element(type_child, value_child))
+
             if is_Multiple == False:
-                return element.find_element(ltype, value)
+                return element_parent.find_element(type_child, value_child)
             else:
-                return element.find_elements(ltype, value)
+                return element_parent.find_elements(type_child, value_child)
 
         except:
-            log.info("串联查找未找到  locator: {} \n element:{}  ".format(element,str(locator)))
+            log.info(
+                "页面【{}】的元素【{}】未能查询到查找子节点 元素【{}】\n locator_child{}"
+                    .format(locator_child.get("page"), element_parent,
+                            locator_child.get('name'), locator_child))
+
+            if is_Multiple == False:
+                return None
+            else:
+                return []
+
+
+    def find_ele_parent(self, locator_parent,locator_child,wait=1,childindex=0):
+        # 通过子节点来定位父节点元素,locator_parent有多个元素,locator_child有多个时必须确认只取一个的序列号
+        #定位方式限制 子节点 定位方式不能是name
+
+        if locator_child['type'] == 'name':
+            log.error('find_ele_parent的定位方式错误')
             return None
 
+        elelist_parent = self.find_ele(locator_parent, is_Multiple=True)
 
-    def find_ele(self,locator,is_Multiple=False):
-        #通过定位器查找元素
+        for element_parent in elelist_parent:
+            child_eles=self.find_ele_child_byelement(element_parent,locator_child,is_Multiple=True,wait=wait)
+            log.info(child_eles)
+
+            if child_eles!=[]:
+                if child_eles.get(childindex)!=None:
+                    log.info("成功遍历查找到元素 {}".format(child_eles))
+                    return element_parent
+        log.info('未找到元素, elelist_parent:{}'.format(str(elelist_parent)))
+
+        return None
+
+
+    def find_ele_fromparent(self,locator_tmp,locator_target,is_Multiple=False,wait=5):
+        #通过uiautomator查找定位元素的兄弟节点元素,不支持xpath
+        """
+        支持的定位方式有：text(name),description(特有的),id,class name
+        """
+
+        log.info("页面【{}】通过元素【{}】查找兄弟元素【{}】".format(locator_tmp.get("page"), locator_tmp.get('name'), locator_target.get("name")))
+
+        map={
+            "name":"textContains",
+            "description":"descriptionContains",
+            "id":"resourceId",
+            "class name":"className"
+        }
+        type_tmp=map.get(locator_tmp["type"])
+        type_target=map.get(locator_target["type"])
+
+        if type_tmp==None or type_target==None:
+            log.error('当前定位方式不支持')
+            raise NotFoundElementError
+
+        value_tmp=locator_tmp["value"]
+        value_target =locator_target["value"]
+
+
+        ui_value='new UiSelector().{}(\"{}\").fromParent(new UiSelector().{}(\"{}\"))'.format(type_tmp,value_tmp,type_target,value_target)
+
+
+        try:
+            WebDriverWait(self.driver, wait).until(
+            lambda driver: driver.find_element_by_android_uiautomator(ui_value))
+
+            if is_Multiple == False:
+                return self.driver.find_element_by_android_uiautomator(ui_value)
+            else:
+                return self.driver.find_elements_by_android_uiautomator(ui_value)
+
+        except:
+            log.info('页面【{}】未找到 元素【{}】\n locator: {}'.format(locator_tmp.get("page"), locator_target.get('name'),str(locator_target)))
+            if is_Multiple == False:
+                return None
+            else:
+                return []
+
+
+    def find_ele(self,locator,is_Multiple=False,wait = 5):
+        #通过定位器查找元素,不用于断言（断言元素存在用 is_element_exist ，断言页面是否含有对应文本关键字的请用is_text_displayed）
         #需要查找多个时，返回list
         #没有查找到时，返回None 或 []
 
@@ -168,44 +288,18 @@ class ElementActions:
 
         log.info("查找 页面【{}】的元素【{}】".format(locator.get("page"), locator.get("name")))
         if is_Multiple==False:
-            return self._find_element(locator,is_raise=False)
+            return self._find_element(locator,is_raise=False,wait=wait)
         else:
-            return self._find_elements(locator,is_raise=False)
-
-
-    def find_ele_traversing(self,elements,target_ele_locator,return_ele_locator=None):
-        #对list的元素对象组进行遍历，查找其元素子节点中目标元素对象是否存在,如果存在返回需要返回的元素对象
-        #通过遍历没有找到符合条件的元素时，返回None
-        #默认返回目标元素的父节点元素对象
-        """
-            Args:
-                elements:  self.driver.find_elements函数的返回值，即元素对象的list组
-                target_ele_locator:  目标查找元素的定位器对象
-                return_ele_locator:  返回元素的定位器对象
-        """
-
-        log.info("遍历查找 页面【{}】的元素【{}】".format(target_ele_locator.get("page"), target_ele_locator.get("name")))
-        for element in elements:
-            target_ele=self.find_ele_recursive(element,target_ele_locator,wait=1.5)
-            if target_ele!=None:
-                if return_ele_locator == None:
-                    log.info("成功遍历查找到元素 {}".format(element))
-                    return element
-                else:
-                    log.info(
-                        "成功遍历查找到 页面【{}】的元素【{}】".format(return_ele_locator.get("page"), return_ele_locator.get("name")))
-                    return element.find_element(return_ele_locator)
-
-        return None
+            return self._find_elements(locator,is_raise=False,wait=wait)
 
 
 
 
 
-    def is_element_exist(self, locator):
+    def is_element_exist(self, locator,wait=2):
         """检查元素是否存在"""
 
-        if self._find_element(locator,is_raise=False)==None:
+        if self._find_element(locator,is_raise=False,wait=wait)==None:
             log.error("没有查找到  页面【{}】的元素【{}】".format(locator.get("page"),locator.get("name")))
             return False
         else:
@@ -213,7 +307,7 @@ class ElementActions:
             return True
 
 
-    def click(self, locator, count=1):
+    def click(self, locator, count=1,wait=5):
         """基础的点击事件
 
         Args:
@@ -222,36 +316,34 @@ class ElementActions:
         """
         msg="[点击]  页面【{}】的元素【{}】".format(locator.get("page"),locator.get("name"))
         log.info(msg)
-        element = self._find_element(locator)
+
+        element = self._find_element(locator,wait=wait)
 
         self.click_ele(element,count,is_log=False)
+
         return self
 
 
     def click_ele(self,element,count=1,is_log=True):
         #对元素对象进行点击
         if is_log==True:
-            log.info("[点击]元素 {}".format(element))
+            log.info("[点击]{}次元素 {}".format(count,element))
 
-        self.sleep(0.5, islog=False)
-        waittime_count=Waittime_count()
-        waittime_count.start()
 
         if count == 1:
-
 
             element.click()
         else:
             touch_action = TouchAction(self.driver)
             try:
                 for x in range(count):
+                    self.sleep(0.1, islog=False)
                     touch_action.tap(element).perform()
             except:
                 pass
 
-        waittime_count.end()
 
-        self.sleep(1.5, islog=False)
+        self.sleep(0.1, islog=False)
 
         return self
 
@@ -315,24 +407,28 @@ class ElementActions:
 
 
 
-    def is_toast_show(self, message, wait=15):
+    def is_toast_show(self, message, wait=5):
         """Android检查是否有对应Toast显示,常用于断言
 
         Args:
             message: Toast信息
-            wait:  等待时间,默认15秒
+            wait:  等待时间
 
         Returns:
             True 显示Toast
 
         """
-        locator = {'name': '[Toast] %s' % message, 'timeOutInSeconds': wait, 'type': 'xpath',
-                   'value': '//*[contains(@text,\'%s\')]' % message}
+
+        toast_loc = ("xpath", ".//*[contains(@text,'%s')]" % message)
         try:
-            el = self._find_element(locator, is_need_displayed=False)
-            return el is not None
-        except NotFoundElementError:
-            log.error("[Toast] 页面中未能找到 %s toast" % locator)
+            WebDriverWait(self.driver, wait, 0.2).until(expected_conditions.presence_of_element_located(toast_loc))
+
+            log.info("当前页面成功找到toast: %s" % message)
+            return True
+
+        except :
+            log.error("当前页面中未能找到toast为: %s" % message)
+
             return False
 
     def is_text_displayed(self, text, retry_time=0, is_raise=False):
@@ -386,6 +482,47 @@ class ElementActions:
 
     # ======================= private ====================
 
+    def _find_ele_child_byname(self, locator_parent, locator_child, is_Multiple=False, wait=8):
+        value_parent, type_parent = locator_parent['value'], locator_parent['type']
+        value_child, type_child = locator_child['value'], locator_child['type']
+
+        try:
+            map = {
+                "name": "textContains",
+                "id": "resourceId",
+                "class name": "className"
+            }
+            type_parent = map.get(type_parent)
+
+            if type_parent == None:
+                log.error('当前定位方式不支持')
+                raise NotFoundElementError
+
+            ui_value = 'new UiSelector().{}(\"{}\").childSelector(new UiSelector().textContains(\"{}\"))'.format(
+                type_parent, value_parent, value_child)
+
+            WebDriverWait(self.driver, wait).until(
+                lambda driver: driver.find_element_by_android_uiautomator(ui_value))
+
+            if is_Multiple == False:
+                return self.driver.find_element_by_android_uiautomator(ui_value)
+            else:
+                return self.driver.find_elements_by_android_uiautomator(ui_value)
+
+
+        except:
+            log.info(
+                "页面【{}】的元素【{}】未能查询到查找子节点 元素【{}】\n locator_parent:{} \n locator_child{}"
+                    .format(locator_parent.get("page"), locator_parent.get("name"),
+                            locator_child.get('name'), locator_parent, locator_child))
+
+            if is_Multiple == False:
+                return None
+            else:
+                return []
+
+
+
     def _find_text_in_page(self, text):
         """检查页面中是否有文本关键字
         拿到页面全部source,暴力检查text是否在source中
@@ -401,7 +538,7 @@ class ElementActions:
         return text in self.driver.page_source
 
 
-    def _find_element(self, locator, is_need_displayed=True,wait = 10,is_raise=True):
+    def _find_element(self, locator, is_need_displayed=True,wait = 5,is_raise=True):
         """查找单个元素,如果有多个返回第一个
 
         Args:
@@ -441,7 +578,7 @@ class ElementActions:
                 return None
 
 
-    def _find_elements(self, locator,wait = 10,is_raise=False):
+    def _find_elements(self, locator,wait = 6,is_raise=False):
         """查找元素,可查找出多个
 
         Args:
@@ -486,10 +623,10 @@ class ElementActions:
         value = locator['value']
         ltype = locator['type']
 
-        #uiautomator不懂，有时间研究一下
-        #find_element不支持通过name查找,但uiautomator可以且速度快
+
+        #find_element在安卓中不支持通过name查找,但uiautomator可以且速度快
         if ltype == 'name':
-            ui_value = 'new UiSelector().textContains' + '(\"' + value + '\")'
+            ui_value = 'new UiSelector().textContains(\"{}\")'.format(value)
             return driver.find_element_by_android_uiautomator(
                 ui_value) if element else driver.find_elements_by_android_uiautomator(ui_value)
         else:

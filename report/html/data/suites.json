@@ -1,0 +1,73 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "tests.test_usercenter",
+    "children" : [ {
+      "name" : "test_returngoods",
+      "children" : [ {
+        "name" : "Test_productbrowse",
+        "children" : [ {
+          "name" : "test_case1",
+          "uid" : "8d93653a1feb3452",
+          "parentUid" : "423f36c05926167cf397891737ad791a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545298931752,
+            "stop" : 1545299007842,
+            "duration" : 76090
+          },
+          "flaky" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "423f36c05926167cf397891737ad791a"
+      }, {
+        "name" : "Test_favourite",
+        "children" : [ {
+          "name" : "test_setenv",
+          "uid" : "86dfa4c57d702ce3",
+          "parentUid" : "c64a07de1b169d82732ca2a038a5ff01",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545299009898,
+            "stop" : 1545299009898,
+            "duration" : 0
+          },
+          "flaky" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "test_case1",
+          "uid" : "73b9c53345055230",
+          "parentUid" : "c64a07de1b169d82732ca2a038a5ff01",
+          "status" : "passed",
+          "time" : {
+            "start" : 1545307146234,
+            "stop" : 1545307244680,
+            "duration" : 98446
+          },
+          "flaky" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "c64a07de1b169d82732ca2a038a5ff01"
+      }, {
+        "name" : "Test_debug",
+        "children" : [ {
+          "name" : "test_case1",
+          "uid" : "181a385f673ce8ce",
+          "parentUid" : "0ea28e3ba4b5b1ef92d09e80c4aa66e2",
+          "status" : "passed",
+          "time" : {
+            "start" : 1546574275604,
+            "stop" : 1546574299087,
+            "duration" : 23483
+          },
+          "flaky" : true,
+          "parameters" : [ ]
+        } ],
+        "uid" : "0ea28e3ba4b5b1ef92d09e80c4aa66e2"
+      } ],
+      "uid" : "b0c69e22cccdc569e7a5c3beeccace08"
+    } ],
+    "uid" : "64527128bd3dd8fe1dce97812a6cc37d"
+  } ]
+}

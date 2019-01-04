@@ -5,6 +5,7 @@ import logging,os,yaml,copy,time
 
 
 
+
 #单例装饰器
 def singleton(class_):
     instances = {}
@@ -42,14 +43,44 @@ class Conf():
         self.info=d
         self.set_info()
 
+        return platform
 
+
+@singleton
+class ArgsData():
+    def __init__(self):
+        self.config_path = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, "data/args_data.yaml")))
+        self.info = self.get_info()
+        self.users=self.info.get('users')
+
+    def get_info(self):
+
+        with open(self.config_path, "r") as f:
+            info = yaml.load(f)
+        return info
+
+    def set_info(self):
+        with open(self.config_path, "w") as f:
+            yaml.dump(self.info,f)
 
 
 
 class Logbuilder():
-    def __init__(self, loggername,loglevel=None):
+    def __init__(self, loggername='log',loglevel=None):
 
         self.loggername=loggername
+
+
+
+    def get_consolehandler(self,formatter):
+
+
+        #创建一个handler，添加handler,用于输出到控制台
+        console_handler = logging.StreamHandler()
+        console_handler.setLevel(logging.INFO)
+        console_handler.setFormatter(formatter)
+
+        return  console_handler
 
 
     def getlog(self):
@@ -59,19 +90,18 @@ class Logbuilder():
         self.logger.setLevel(logging.INFO)
 
         # 定义handler的输出格式
-        # formatter = logging.Formatter('%(name)s %(levelname)s %(asctime)s \n %(message)s', "%H:%M:%S")
+        formatter = logging.Formatter(' \n %(message)s',
+                                      "%H:%M:%S")
 
+        console_handler=self.get_consolehandler(formatter)
 
-        # 创建一个handler，添加handler,用于输出到控制台
-        console_handler = logging.StreamHandler()
-        console_handler.setLevel(logging.INFO)
         self.logger.addHandler(console_handler)
 
         return self.logger
 
 
-
 log=Logbuilder("log:").getlog()
+
 
 
 def get_attrsname(obj):
@@ -85,7 +115,7 @@ def get_attrsname(obj):
 class Waittime_count:
     #用于计算一个步骤的执行时间，如果超出规定时间就输出日志
 
-    def __init__(self,msg="等待时间有：",durationtime=8):
+    def __init__(self,msg="等待时间有：",durationtime=3):
         self.msg=msg
         self.starttime=None
         self.endtime=None
@@ -101,3 +131,18 @@ class Waittime_count:
         if Waittime>self.durationtime:
             log.info(self.msg+" {}s ".format(Waittime))
 
+
+
+def ls_by_key(path:str,key:str):
+    #获取当前路径下,通过ls命令获取的文件或文件夹名的列表,过滤条件为对应的key参数
+    #输出list
+    from base.shell import Shell
+
+    result=[]
+    out=Shell.invoke('ls',cwd=path,is_log=False)
+
+    for ele in out.splitlines():
+        if key in ele:
+            result.append(ele)
+
+    return result

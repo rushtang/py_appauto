@@ -1,0 +1,183 @@
+{
+  "uid" : "c10d783e25ab483b",
+  "name" : "test_case1",
+  "fullName" : "tests.test_usercenter.test_returngoods.Test_debug#test_case1",
+  "historyId" : "62eb6809c80073383f6ef9757b94bc03",
+  "time" : {
+    "start" : 1545997801389,
+    "stop" : 1545997835740,
+    "duration" : 34351
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "driverenv",
+    "time" : {
+      "start" : 1545997755481,
+      "stop" : 1545997772612,
+      "duration" : 17131
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "action",
+    "time" : {
+      "start" : 1545997772612,
+      "stop" : 1545997772613,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "suitinit",
+    "time" : {
+      "start" : 1545997772613,
+      "stop" : 1545997801385,
+      "duration" : 28772
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "caserun",
+    "time" : {
+      "start" : 1545997801385,
+      "stop" : 1545997801386,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "376391e12cfcd387",
+      "name" : "我的订单_19:50:31_.png",
+      "source" : "376391e12cfcd387.png",
+      "type" : "image/png",
+      "size" : 590858
+    }, {
+      "uid" : "ea3b04b529db351c",
+      "name" : "log",
+      "source" : "ea3b04b529db351c.txt",
+      "type" : "text/plain",
+      "size" : 3542
+    }, {
+      "uid" : "bf8fdcf5120c2f82",
+      "name" : "stdout",
+      "source" : "bf8fdcf5120c2f82.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "d2b4073eae45a82",
+      "name" : "stderr",
+      "source" : "d2b4073eae45a82.txt",
+      "type" : "text/plain",
+      "size" : 0
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 4,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "action::0",
+    "time" : {
+      "start" : 1545997837749,
+      "stop" : 1545997838411,
+      "duration" : 662
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "caserun::0",
+    "time" : {
+      "start" : 1545997835742,
+      "stop" : 1545997837746,
+      "duration" : 2004
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "7183bd9b90acb09c",
+      "name" : "用例结束前的截图_19:50:37_.png",
+      "source" : "7183bd9b90acb09c.png",
+      "type" : "image/png",
+      "size" : 298891
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "tests.test_usercenter"
+  }, {
+    "name" : "suite",
+    "value" : "test_returngoods"
+  }, {
+    "name" : "subSuite",
+    "value" : "Test_debug"
+  }, {
+    "name" : "host",
+    "value" : "tangmaoheng-deMacBook-Air.local"
+  }, {
+    "name" : "thread",
+    "value" : "23725-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_usercenter.test_returngoods"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c10d783e25ab483b.json",
+  "parameterValues" : [ ]
+}

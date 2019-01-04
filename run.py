@@ -3,8 +3,10 @@
 
 
 import pytest,sys
+from multiprocessing import Pool
 from base.run import Run
 from base.utils import log,Conf
+from base.shell import Shell
 
 
 """
@@ -27,14 +29,12 @@ if __name__ == '__main__':
 
     platform=Conf().androidname  #android  or  ios
 
-
     run=Run(platform)
 
-    self_args = sys.argv[1:]
-    #获取命令行参数中的用例执行作用域
 
-    pytest.main(run.get_run_args() + self_args)
-    #对pytest的运行传入参数
+    #获取命令行参数中的用例执行作用域
+    run.exec(sys.argv[1:])
+
 
     run.generate_report()
 

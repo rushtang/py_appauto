@@ -1,22 +1,32 @@
 # -*- coding: utf-8 -*-
 
-import pytest
+import pytest,os,logging
 from appium import webdriver
 from base.action import ElementActions
 from base.environment import EnvironmentAndroid
 from base.utils import log
-import allure
+
+
 
 #pytest的setup和down工作
+
+
 
 
 #初始化driver对象，在package的领域只会执行一次
 @pytest.fixture("package")
 def driverenv():
+
+
     env=EnvironmentAndroid()
-    capabilities = {'platformName': env.devices.get("platformName"),
-                    'platformVersion': env.devices.get("platformVersion"),
-                    'deviceName': env.devices.get("deviceName"),
+    current_device=env.current_device
+
+    capabilities = {
+                    'platformName': current_device.get("platformName"),
+                    'platformVersion': current_device.get("platformVersion"),
+                    'deviceName': current_device.get("deviceName"),
+                    'udid': current_device.get("deviceName"),
+                    'systemPort':current_device.get('systemPort'),
                     'app': env.appium.get("app"),
                     'clearSystemFiles': True,
                     'appActivity': env.appium.get("appActivity"),
@@ -26,9 +36,16 @@ def driverenv():
                     'recreateChromeDriverSessions': True,
                     "unicodeKeyboard": "True",
                     "noReset":True,
-                    "fullReset":False
+                    "fullReset":False,
+                    "newCommandTimeout": 100
                     }
-    host = env.appium.get("host")
+
+
+
+    log.info('当前执行的appium相关配置为：'+str(capabilities))
+
+    host=current_device.get('appiumserver')
+
     driver = webdriver.Remote(host, capabilities)
 
     return driver
@@ -38,15 +55,18 @@ def driverenv():
 @pytest.fixture("package")
 def action(driverenv):
     element_action=ElementActions(driverenv)
-    log.info("\n初始化driver")
     yield element_action   #返回并且挂载ElementActions的实例，在对应作用域结束前，执行driver.quit()
 
     element_action.driver.quit()
 
 
+
+
+
 #用例执行前后：加入日志说明、结束前的截图输出到报告上
 @pytest.fixture(autouse=True)
 def caserun(action):
+
     log.info("————————————————————————执行用例 ----------——————————————" )
     yield
     # element_action=ElementActions(driverenv)

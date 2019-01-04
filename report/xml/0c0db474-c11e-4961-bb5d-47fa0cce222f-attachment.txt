@@ -1,0 +1,31 @@
+INFO 17:52:55  当前执行的appium相关配置为：{'platformName': 'Android', 'platformVersion': '6.0', 'deviceName': '192.168.56.101:5555', 'udid': '192.168.56.101:5555', 'systemPort': 8201, 'app': '/Users/jm-yf/PycharmProjects/appauto/apk/jumei_xiaomi_7305.apk', 'clearSystemFiles': True, 'appActivity': 'com.jm.android.jumei.home.activity.StartActivity', 'appPackage': 'com.jm.android.jumei', 'automationName': 'UIAutomator2', 'noSign': True, 'recreateChromeDriverSessions': True, 'unicodeKeyboard': 'True', 'noReset': True, 'fullReset': False, 'newCommandTimeout': 100} 
+
+INFO 17:53:11  start_activity:    com.jm.android.jumei.home.activity.NewHomeActivity 
+
+INFO 17:53:31  ————————————————————————执行用例 ----------——————————————
+INFO 17:53:31  start_activity:    com.jm.android.jumei.home.activity.NewHomeActivity 
+
+INFO 17:53:50  通过坐标(987.0,1483.0), 成功点击 页面【特卖首页】的元素【进入用户中心按钮】 
+
+INFO 17:53:52  [点击]  页面【用户中心页】的元素【查看全部订单】 
+
+INFO 17:53:59  查找 页面【我的订单页】的元素【订单商品项s】 
+
+INFO 17:53:59  页面【我的订单页】的元素【<appium.webdriver.webelement.WebElement (session="91fda058-4efb-47ce-89a6-86dcdcbae0b9", element="ac5d4f7a-1c9e-49c0-a598-36aac6826108")>】未能查询到查找子节点 元素【订单商品名】
+ locator_child{'name': '订单商品名', 'type': 'xpath', 'value': "//*[@text='爱的']", 'dynamic': True, 'switch': None, 'page': '我的订单页'} 
+
+INFO 17:53:59  页面【我的订单页】的元素【<appium.webdriver.webelement.WebElement (session="91fda058-4efb-47ce-89a6-86dcdcbae0b9", element="335a525b-4602-4000-9738-0d1f9ad69385")>】未能查询到查找子节点 元素【订单商品名】
+ locator_child{'name': '订单商品名', 'type': 'xpath', 'value': "//*[@text='爱的']", 'dynamic': True, 'switch': None, 'page': '我的订单页'} 
+
+INFO 17:53:59  页面【我的订单页】的元素【<appium.webdriver.webelement.WebElement (session="91fda058-4efb-47ce-89a6-86dcdcbae0b9", element="b96087f5-8edd-4557-9cdd-a4364df7ae27")>】未能查询到查找子节点 元素【订单商品名】
+ locator_child{'name': '订单商品名', 'type': 'xpath', 'value': "//*[@text='爱的']", 'dynamic': True, 'switch': None, 'page': '我的订单页'} 
+
+INFO 17:53:59  未找到元素, elelist_parent:[<appium.webdriver.webelement.WebElement (session="91fda058-4efb-47ce-89a6-86dcdcbae0b9", element="ac5d4f7a-1c9e-49c0-a598-36aac6826108")>, <appium.webdriver.webelement.WebElement (session="91fda058-4efb-47ce-89a6-86dcdcbae0b9", element="335a525b-4602-4000-9738-0d1f9ad69385")>, <appium.webdriver.webelement.WebElement (session="91fda058-4efb-47ce-89a6-86dcdcbae0b9", element="b96087f5-8edd-4557-9cdd-a4364df7ae27")>] 
+
+INFO 17:53:59  页面【我的订单页】的元素【None】未能查询到查找子节点 元素【订单商品单价格s】
+ locator_child{'name': '订单商品单价格s', 'type': 'id', 'value': 'com.jm.android.jumei:id/item_price', 'dynamic': False, 'switch': None, 'page': '我的订单页'} 
+
+INFO 17:53:59  None
+INFO 17:53:59  sleep等待 1 s  
+
+INFO 17:54:01  ————————————————————————该用例执行结束 ----------——————————————

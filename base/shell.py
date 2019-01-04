@@ -8,7 +8,7 @@ import subprocess
 
 
 
-#Device类，用get_android_devices返回执行adb devices命令时的devices信息（即获取当前链接的机子devices）
+#Device类，用get_android_devices返回执行adb devices命令时的devices信息（即获取当前链接的机子devicename）
 class Device:
     @staticmethod
     def get_android_devices():
@@ -23,13 +23,14 @@ class Device:
 
 class Shell:
     @staticmethod
-    def invoke(cmd):
+    def invoke(cmd,cwd=None,is_log=True):
         # shell设为true，程序将通过shell来执行
         # stdin, stdout, stderr分别表示程序的标准输入、输出、错误句柄。
         # 他们可以是PIPE，文件描述符或文件对象，也可以设置为None，表示从父进程继承。
         # subprocess.PIPE实际上为文本流提供一个缓存区
-        log.info("执行命令: {}".format(cmd))
-        p= subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        if is_log==True:
+            log.info("执行命令: {}".format(cmd))
+        p= subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,cwd=cwd)
         output, errors=p.communicate()
         o = output.decode("utf-8")
         return o
@@ -91,3 +92,5 @@ class ADB:
         获取设备SDK版本号
         """
         return self.shell("getprop ro.build.version.sdk").strip()
+
+

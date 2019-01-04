@@ -1,0 +1,199 @@
+{
+  "uid" : "8d93653a1feb3452",
+  "name" : "test_case1",
+  "fullName" : "tests.test_usercenter.test_returngoods.Test_productbrowse#test_case1",
+  "historyId" : "e4f59a785db03d0e6b526d000b1c37b6",
+  "time" : {
+    "start" : 1545298931752,
+    "stop" : 1545299007842,
+    "duration" : 76090
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "suitinit",
+    "time" : {
+      "start" : 1545298911647,
+      "stop" : 1545298931748,
+      "duration" : 20101
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "caserun",
+    "time" : {
+      "start" : 1545298931748,
+      "stop" : 1545298931749,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "action",
+    "time" : {
+      "start" : 1545298911647,
+      "stop" : 1545298911647,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "driverenv",
+    "time" : {
+      "start" : 1545298895049,
+      "stop" : 1545298911646,
+      "duration" : 16597
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "87c447af0cbde997",
+      "name" : "商品详情页_17:43:01_.png",
+      "source" : "87c447af0cbde997.png",
+      "type" : "image/png",
+      "size" : 236601
+    }, {
+      "uid" : "6d17a174a49227dc",
+      "name" : "当天的浏览记录_17:43:27_.png",
+      "source" : "6d17a174a49227dc.png",
+      "type" : "image/png",
+      "size" : 41799
+    }, {
+      "uid" : "a747125b13234ae",
+      "name" : "log",
+      "source" : "a747125b13234ae.txt",
+      "type" : "text/plain",
+      "size" : 4146
+    }, {
+      "uid" : "842579713930fd7",
+      "name" : "stdout",
+      "source" : "842579713930fd7.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "601774560d58e3f",
+      "name" : "stderr",
+      "source" : "601774560d58e3f.txt",
+      "type" : "text/plain",
+      "size" : 0
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 5,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "caserun::0",
+    "time" : {
+      "start" : 1545299007843,
+      "stop" : 1545299009893,
+      "duration" : 2050
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "939093f80355f5ac",
+      "name" : "用例结束前的截图_17:43:29_.png",
+      "source" : "939093f80355f5ac.png",
+      "type" : "image/png",
+      "size" : 75894
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  }, {
+    "name" : "action::0",
+    "time" : {
+      "start" : 1545299011522,
+      "stop" : 1545299012194,
+      "duration" : 672
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "tests.test_usercenter"
+  }, {
+    "name" : "suite",
+    "value" : "test_returngoods"
+  }, {
+    "name" : "subSuite",
+    "value" : "Test_productbrowse"
+  }, {
+    "name" : "host",
+    "value" : "tangmaoheng-deMacBook-Air.local"
+  }, {
+    "name" : "thread",
+    "value" : "7335-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_usercenter.test_returngoods"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "11d79cc8dce470a5",
+      "status" : "passed",
+      "time" : {
+        "start" : 1545297177147,
+        "stop" : 1545297250819,
+        "duration" : 73672
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "8d93653a1feb3452.json",
+  "parameterValues" : [ ]
+}

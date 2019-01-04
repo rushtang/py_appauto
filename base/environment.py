@@ -21,10 +21,15 @@ class Environment(metaclass=abc.ABCMeta):
 @singleton
 class EnvironmentAndroid(Environment):
     def __init__(self):
-        self.get_conf()
+        self.conf=self.get_conf()
         self.appium = self.conf.get("appium")  #key: apk、appActivity、appPackage、version
-        self.report=self.conf.get("report")  #key: html_report、xml_report
+        self.path=self.conf.get("path")  #key:
         self.devices=self.conf.get("devices")  #key: deviceName、platformName、platformVersion
+
+        #最开始运行时动态获取，存储suit和device的对应关系
+        self.current_device={}
+
+        self.current_path=None
 
 
     def get_conf(self):
@@ -34,7 +39,20 @@ class EnvironmentAndroid(Environment):
 
         log.info('获取环境配置 Path:' + environment_info_path)
         with open(environment_info_path,"r") as f:
-            self.conf=yaml.load(f)
+            conf=yaml.load(f)
+
+        return conf
+
+    def callback_current_device(self,device:dict):
+        #传入当前的device信息
+        self.current_device=device
+
+    def callback_current_path(self,current_path):
+
+        self.current_path=current_path
+
+
+
 
     def check_environment(self):
         log.info('检查环境...')
@@ -51,15 +69,16 @@ class EnvironmentAndroid(Environment):
                 os.environ["ANDROID_HOME"])
 
         # 检查设备
-        devices = Device.get_android_devices()
-        env_devices=self.devices.get("deviceName")
-        if not devices:
+        current_devices = Device.get_android_devices()
+        if len(current_devices)==0:
             log.info('没有设备连接')
             exit()
-        elif env_devices not in devices:
-            log.info('已连接设备:{}不包含设备{}',format(devices,env_devices))
-        else:
-            log.info('已设备连接{}'.format(env_devices))
+        for device in self.devices:
+            deviceName=device.get("deviceName")
+            if deviceName in current_devices:
+                log.info('已正常连接设备{}'.format(deviceName))
+            else:
+                log.error('设备{}未正常连接'.format(deviceName))
 
 
 

@@ -1,0 +1,3 @@
+INFO 20:06:22  当前执行的appium相关配置为：{'platformName': 'Android', 'platformVersion': '6.0', 'deviceName': '192.168.56.101:5555', 'udid': '192.168.56.101:5555', 'systemPort': 8201, 'app': '/Users/jm-yf/PycharmProjects/appauto/apk/jumei_xiaomi_7305.apk', 'clearSystemFiles': True, 'appActivity': 'com.jm.android.jumei.home.activity.StartActivity', 'appPackage': 'com.jm.android.jumei', 'automationName': 'UIAutomator2', 'noSign': True, 'recreateChromeDriverSessions': True, 'unicodeKeyboard': 'True', 'noReset': True, 'fullReset': False, 'newCommandTimeout': 100} 
+
+INFO 20:06:37  start_activity:    com.jm.android.jumei.home.activity.NewHomeActivity

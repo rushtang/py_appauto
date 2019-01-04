@@ -1,0 +1,177 @@
+{
+  "uid" : "79413cedfb746e0c",
+  "name" : "test_setenv",
+  "fullName" : "tests.test_usercenter.test_returngoods.Test_favourite#test_setenv",
+  "historyId" : "223e408082e4fd6480e607b3426b083f",
+  "time" : {
+    "start" : 1545297252792,
+    "stop" : 1545297252793,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "suitinit",
+    "time" : {
+      "start" : 1545297156149,
+      "stop" : 1545297177144,
+      "duration" : 20995
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "action",
+    "time" : {
+      "start" : 1545297156149,
+      "stop" : 1545297156149,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "caserun",
+    "time" : {
+      "start" : 1545297252791,
+      "stop" : 1545297252791,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "driverenv",
+    "time" : {
+      "start" : 1545297139919,
+      "stop" : 1545297156148,
+      "duration" : 16229
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "e072223c815dda78",
+      "name" : "log",
+      "source" : "e072223c815dda78.txt",
+      "type" : "text/plain",
+      "size" : 348
+    }, {
+      "uid" : "b8ab0e43d60fa38f",
+      "name" : "stdout",
+      "source" : "b8ab0e43d60fa38f.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "21442979933818b2",
+      "name" : "stderr",
+      "source" : "21442979933818b2.txt",
+      "type" : "text/plain",
+      "size" : 0
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "action::0",
+    "time" : {
+      "start" : 1545297254248,
+      "stop" : 1545297254955,
+      "duration" : 707
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "caserun::0",
+    "time" : {
+      "start" : 1545297252793,
+      "stop" : 1545297254246,
+      "duration" : 1453
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "a36992262edf9f13",
+      "name" : "用例结束前的截图_17:14:14_.png",
+      "source" : "a36992262edf9f13.png",
+      "type" : "image/png",
+      "size" : 75231
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "tests.test_usercenter"
+  }, {
+    "name" : "suite",
+    "value" : "test_returngoods"
+  }, {
+    "name" : "subSuite",
+    "value" : "Test_favourite"
+  }, {
+    "name" : "host",
+    "value" : "tangmaoheng-deMacBook-Air.local"
+  }, {
+    "name" : "thread",
+    "value" : "7214-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_usercenter.test_returngoods"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "79413cedfb746e0c.json",
+  "parameterValues" : [ ]
+}
