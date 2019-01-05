@@ -32,15 +32,13 @@ class BasePage(metaclass=abc.ABCMeta):
 
 
     #获取定位器对象(字典结构)，定位器对象返回的就是元素本身，包含对应元素属性
-    #元素属性有：元素名、元素的定位方式、对应定位方式的值、是否是动态元素、出现该元素的前置操作（默认为空，填写page类的前置操作方法名）、查找元素的等待时间、元素的页面名
-    def  get_locator(self,elename, type, value, dynamic=False,switch=None,timeOutInSeconds=None,page=None):
-        #TODO 优化
+    #元素属性有：元素名、元素的定位方式、对应定位方式的值、是否是动态元素、出现该元素的前置操作（默认为空，填写page类的前置操作方法名）、元素的页面名
+    def  get_locator(self,elename, type, value, dynamic=False,switch=None,page=None):
+
         if page==None:
             page=self.name
-
         locator=dict(name=elename, type=type, value=value, dynamic=dynamic,switch=switch,page=page)
-        if timeOutInSeconds!=None:
-            locator.update(timeOutInSeconds=timeOutInSeconds)
+
         return locator
 
     def newlocator(self,locator:dict,map:dict):

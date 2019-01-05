@@ -37,10 +37,8 @@ def driverenv():
                     "unicodeKeyboard": "True",
                     "noReset":True,
                     "fullReset":False,
-                    "newCommandTimeout": 100
+                    "newCommandTimeout": 300
                     }
-
-
 
     log.info('当前执行的appium相关配置为：'+str(capabilities))
 
@@ -69,7 +67,6 @@ def caserun(action):
 
     log.info("————————————————————————执行用例 ----------——————————————" )
     yield
-    # element_action=ElementActions(driverenv)
     action.sleep(1).get_img("用例结束前的截图")
     log.info("————————————————————————该用例执行结束 ----------——————————————")
 

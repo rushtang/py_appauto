@@ -4,65 +4,21 @@
   "children" : [ {
     "name" : "tangmaoheng-deMacBook-Air.local",
     "children" : [ {
-      "name" : "7737-MainThread",
+      "name" : "10508-MainThread",
       "children" : [ {
         "name" : "test_case1",
-        "uid" : "73b9c53345055230",
-        "parentUid" : "4d0c27d0c338ddfb9867d52f4249003d",
+        "uid" : "a6c83ceb8e5aa98c",
+        "parentUid" : "3b431c137f754ef57a406c9c05f6fa3d",
         "status" : "passed",
         "time" : {
-          "start" : 1545307146234,
-          "stop" : 1545307244680,
-          "duration" : 98446
+          "start" : 1546660677420,
+          "stop" : 1546660705562,
+          "duration" : 28142
         },
         "flaky" : false,
         "parameters" : [ ]
       } ],
-      "uid" : "4d0c27d0c338ddfb9867d52f4249003d"
-    }, {
-      "name" : "7335-MainThread",
-      "children" : [ {
-        "name" : "test_case1",
-        "uid" : "8d93653a1feb3452",
-        "parentUid" : "a878019ac827e5733d5a312d76b28e5e",
-        "status" : "passed",
-        "time" : {
-          "start" : 1545298931752,
-          "stop" : 1545299007842,
-          "duration" : 76090
-        },
-        "flaky" : false,
-        "parameters" : [ ]
-      }, {
-        "name" : "test_setenv",
-        "uid" : "86dfa4c57d702ce3",
-        "parentUid" : "a878019ac827e5733d5a312d76b28e5e",
-        "status" : "passed",
-        "time" : {
-          "start" : 1545299009898,
-          "stop" : 1545299009898,
-          "duration" : 0
-        },
-        "flaky" : false,
-        "parameters" : [ ]
-      } ],
-      "uid" : "a878019ac827e5733d5a312d76b28e5e"
-    }, {
-      "name" : "5444-MainThread",
-      "children" : [ {
-        "name" : "test_case1",
-        "uid" : "181a385f673ce8ce",
-        "parentUid" : "a474594b65e3c7d1666034b5eac7772f",
-        "status" : "passed",
-        "time" : {
-          "start" : 1546574275604,
-          "stop" : 1546574299087,
-          "duration" : 23483
-        },
-        "flaky" : true,
-        "parameters" : [ ]
-      } ],
-      "uid" : "a474594b65e3c7d1666034b5eac7772f"
+      "uid" : "3b431c137f754ef57a406c9c05f6fa3d"
     } ],
     "uid" : "577e26d22381ed8ab20093e9d6c8c9bf"
   } ]

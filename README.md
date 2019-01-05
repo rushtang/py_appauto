@@ -1,6 +1,20 @@
+## 解决的痛点
+1、pageobject分层时,page的组织和层级
+2、元素定位:通过父节点找子节点、通过子节点确定父节点、找兄弟节点
+3、多设备分配测试任务运行
+4、断言相关
+5、日志和报告
+6、业务复用和维护
+
+
+## 需要安装的
+```brew install allure-commandline``` （生成allure报告的工具）
+requment.txt里面的第三方包
+=======
 ## 需要安装的
 ```brew install allure-commandline``` （生成allure报告的工具）
 通过pycharm直接安装requment.txt里面的第三方包
+
 ```
 selenium==3.14.1
 Appium-Python-Client
@@ -16,6 +30,10 @@ adb devices
 adb kill-server
 adb shell "dumpsys window w | grep name="  (获取当前页面的Activity)
 ```
+运行appium服务器（带有日志形式,no-reset形式,多设备时指定连接设备）
+
+```appium --address 0.0.0.0 --port 4723 --log "appium.log" --log-timestamp --local-timezone  --no-reset  --session-override  -U 192.168.56.101:5555```
+
 
 # 快速使用
 

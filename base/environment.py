@@ -23,8 +23,8 @@ class EnvironmentAndroid(Environment):
     def __init__(self):
         self.conf=self.get_conf()
         self.appium = self.conf.get("appium")  #key: apk、appActivity、appPackage、version
-        self.path=self.conf.get("path")  #key:
-        self.devices=self.conf.get("devices")  #key: deviceName、platformName、platformVersion
+        self.path=self.conf.get("path")
+        self.devices=self.conf.get("devices")
 
         #最开始运行时动态获取，存储suit和device的对应关系
         self.current_device={}
