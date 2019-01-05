@@ -51,7 +51,8 @@ class Test_productbrowse():
         #访问浏览记录页
         action.click(up.用户中心.浏览记录)
 
-        browseproduct_locator=up.浏览记录.newlocator(up.浏览记录.当前浏览商品, 'value', productname)
+        map={ 'value':productname}
+        browseproduct_locator=up.浏览记录.newlocator(up.浏览记录.当前浏览商品,map)
         action.get_img('当天的浏览记录')
         Validator.assert_true(action.is_element_exist(browseproduct_locator),'断言失败：没找到对应的浏览商品名')
 
@@ -94,21 +95,21 @@ class Test_debug():
 
 
         up.用户中心.pageinto(action)
-        # action.click(up.用户中心.查看全部订单)
-        # action.get_img('我的订单')
-        #productname_locator=bp.我的订单页.newlocator(bp.我的订单页.订单商品名,'value',"//android.widget.TextView[@text='爱的']")
-        # # productname_ele=action.find_ele(productname_locator)
-        # action.find_ele(productname_locator,is_Multiple=True,wait=5)
-        #
-        # product_ele=action.find_ele_parent(bp.我的订单页.订单商品项s,productname_locator,wait=4,childindex=0)
-        #
-        # price_ele=action.find_ele_child_byelement(product_ele,bp.我的订单页.订单商品单价格s)
-        # log.info(action.get_text_ele(price_ele))
+        action.click(up.用户中心.查看全部订单)
+        action.get_img('我的订单')
 
-        update_map={'type':"xpath","value":"//android.widget.TextView[@text='待发货']"}
-        new_locator=up.用户中心.newlocator(up.用户中心.待发货,update_map)
-        ele=action.find_ele_parent(up.用户中心.用户中心列表_列表1,new_locator)
-        log.info(ele)
+        map={'value':".//android.widget.TextView[@text='爱的']"}
+        productname_locator=bp.我的订单页.newlocator(bp.我的订单页.订单商品名,map)
+
+        eles=action.find_ele(productname_locator,is_Multiple=True,wait=5)
+        log.info(eles)
+
+        product_ele=action.find_ele_parent(bp.我的订单页.订单商品项s,productname_locator,wait=4)
+        log.info(product_ele)
+
+        price_ele=action.find_ele_child_byelement(product_ele,bp.我的订单页.订单商品单价格s)
+        log.info(action.get_text_ele(price_ele))
+
 
 
 

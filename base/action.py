@@ -162,7 +162,7 @@ class ElementActions:
 
 
     def find_ele_child(self, locator_parent, locator_child, is_Multiple=False, wait=8):
-        # 通过父结点元素查找子结点元素
+        # 通过父结点定位方式查找子结点元素
         #定位方式限制：如果子节点定位方式为name时，父节点定位方式只能为id、name、class name
 
         """
@@ -173,27 +173,34 @@ class ElementActions:
         :return: 查找不到时返回None或者[]
         """
 
-        log.info("页面【{}】的元素【{}】查找子节点 元素【{}】".format(locator_parent.get("page"),locator_parent.get("name"),locator_child.get('name')))
-
         if locator_child['type'] != 'name':
             element_parent = self.find_ele(locator_parent)
-            self.find_ele_child_byelement(element_parent,locator_child,is_Multiple,wait)
+            return  self.find_ele_child_byelement(element_parent,locator_child,is_Multiple,wait)
         else:
-            self._find_ele_child_byname(locator_parent, locator_child, is_Multiple,wait)
+            return  self._find_ele_child_byname(locator_parent, locator_child, is_Multiple,wait)
 
 
-    def find_ele_child_byelement(self, element_parent, locator_child, is_Multiple=False, wait=8):
+    def find_ele_child_byelement(self, element_parent, locator_child, is_Multiple=False, wait=6):
+        #通过父结点元素查找子结点元素,不支持name定位方式
+
+        if locator_child['type'] == 'name':
+            log.error('find_ele_child_byelement的定位方式错误')
+            raise NotFoundElementError
+
         value_child, type_child = locator_child['value'], locator_child['type']
-
         try:
             WebDriverWait(self.driver, wait).until(
-                lambda: element_parent.find_element(type_child, value_child))
+                lambda driver: element_parent.find_element(type_child, value_child))
+
+            log.info(
+                "页面【{}】的元素【{}】成功查询到查找子节点 元素【{}】"
+                    .format(locator_child.get("page"), element_parent,
+                            locator_child.get('name')))
 
             if is_Multiple == False:
                 return element_parent.find_element(type_child, value_child)
             else:
                 return element_parent.find_elements(type_child, value_child)
-
         except:
             log.info(
                 "页面【{}】的元素【{}】未能查询到查找子节点 元素【{}】\n locator_child{}"
@@ -206,13 +213,13 @@ class ElementActions:
                 return []
 
 
-    def find_ele_parent(self, locator_parent,locator_child,wait=1,childindex=0):
-        # 通过子节点来定位父节点元素,locator_parent有多个元素,locator_child有多个时必须确认只取一个的序列号
+    def find_ele_parent(self, locator_parent,locator_child,wait=2):
+        # 通过子节点来定位父节点元素,locator_parent有多个元素（通过遍历父节点，找出包含符合条件子节点的父节点）
         #定位方式限制 子节点 定位方式不能是name
 
         if locator_child['type'] == 'name':
             log.error('find_ele_parent的定位方式错误')
-            return None
+            raise NotFoundElementError
 
         elelist_parent = self.find_ele(locator_parent, is_Multiple=True)
 
@@ -221,7 +228,6 @@ class ElementActions:
             log.info(child_eles)
 
             if child_eles!=[]:
-                if child_eles.get(childindex)!=None:
                     log.info("成功遍历查找到元素 {}".format(child_eles))
                     return element_parent
         log.info('未找到元素, elelist_parent:{}'.format(str(elelist_parent)))
@@ -230,7 +236,7 @@ class ElementActions:
 
 
     def find_ele_fromparent(self,locator_tmp,locator_target,is_Multiple=False,wait=5):
-        #通过uiautomator查找定位元素的兄弟节点元素,不支持xpath
+        #通过uiautomator查找定位元素的兄弟节点元素,不支持xpath，且兄弟节点必须同级
         """
         支持的定位方式有：text(name),description(特有的),id,class name
         """
@@ -466,7 +472,7 @@ class ElementActions:
 
 
     def dialog_ok(self, wait=5):
-        locator = {'name': '对话框确认键', 'timeOutInSeconds': wait, 'type': 'id', 'value': 'android:id/button1'}
+        locator = {'name': '对话框确认键', 'type': 'id', 'value': 'android:id/button1'}
         self.click(locator)
 
     def set_number_by_soft_keyboard(self, nums):
@@ -483,6 +489,8 @@ class ElementActions:
     # ======================= private ====================
 
     def _find_ele_child_byname(self, locator_parent, locator_child, is_Multiple=False, wait=8):
+        #使用uiautomator通过父节点，定位子节点。
+
         value_parent, type_parent = locator_parent['value'], locator_parent['type']
         value_child, type_child = locator_child['value'], locator_child['type']
 
@@ -503,6 +511,9 @@ class ElementActions:
 
             WebDriverWait(self.driver, wait).until(
                 lambda driver: driver.find_element_by_android_uiautomator(ui_value))
+
+            log.info("页面【{}】的元素【{}】成功查找子节点 元素【{}】".format(locator_parent.get("page"), locator_parent.get("name"),
+                                                        locator_child.get('name')))
 
             if is_Multiple == False:
                 return self.driver.find_element_by_android_uiautomator(ui_value)
@@ -552,10 +563,7 @@ class ElementActions:
                 未找到元素会抛 NotFoundElementError 异常
 
         """
-        if 'timeOutInSeconds' in locator:
-            wait = locator['timeOutInSeconds']
-        else:
-            wait = wait
+
         waittime_count=Waittime_count(msg='[查找] 页面【{}】该元素【{}】等待时间:'.format(locator.get("page"),locator.get("name")))
         waittime_count.start()
         try:
@@ -588,11 +596,6 @@ class ElementActions:
         Returns:元素列表 或 []
 
         """
-        if 'timeOutInSeconds' in locator:
-            wait = locator['timeOutInSeconds']
-        else:
-            wait = wait
-
         try:
             WebDriverWait(self.driver, wait).until(
                 lambda driver: self._get_element_by_type(driver, locator, False).__len__() > 0)
@@ -624,7 +627,7 @@ class ElementActions:
         ltype = locator['type']
 
 
-        #find_element在安卓中不支持通过name查找,但uiautomator可以且速度快
+        #find_element在安卓中appium定位不支持通过name查找,但uiautomator可以且速度快
         if ltype == 'name':
             ui_value = 'new UiSelector().textContains(\"{}\")'.format(value)
             return driver.find_element_by_android_uiautomator(

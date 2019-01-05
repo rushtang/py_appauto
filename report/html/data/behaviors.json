@@ -3,51 +3,15 @@
   "name" : "behaviors",
   "children" : [ {
     "name" : "test_case1",
-    "uid" : "8d93653a1feb3452",
+    "uid" : "a6c83ceb8e5aa98c",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
-      "start" : 1545298931752,
-      "stop" : 1545299007842,
-      "duration" : 76090
+      "start" : 1546660677420,
+      "stop" : 1546660705562,
+      "duration" : 28142
     },
     "flaky" : false,
-    "parameters" : [ ]
-  }, {
-    "name" : "test_setenv",
-    "uid" : "86dfa4c57d702ce3",
-    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
-    "status" : "passed",
-    "time" : {
-      "start" : 1545299009898,
-      "stop" : 1545299009898,
-      "duration" : 0
-    },
-    "flaky" : false,
-    "parameters" : [ ]
-  }, {
-    "name" : "test_case1",
-    "uid" : "73b9c53345055230",
-    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
-    "status" : "passed",
-    "time" : {
-      "start" : 1545307146234,
-      "stop" : 1545307244680,
-      "duration" : 98446
-    },
-    "flaky" : false,
-    "parameters" : [ ]
-  }, {
-    "name" : "test_case1",
-    "uid" : "181a385f673ce8ce",
-    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
-    "status" : "passed",
-    "time" : {
-      "start" : 1546574275604,
-      "stop" : 1546574299087,
-      "duration" : 23483
-    },
-    "flaky" : true,
     "parameters" : [ ]
   } ]
 }

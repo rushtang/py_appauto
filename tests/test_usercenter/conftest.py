@@ -12,10 +12,6 @@ if conf.platform==conf.androidname:
     from base.conftest_android import *
 elif conf.platform==conf.iosname:
     from base.conftest_ios import *
-else:
-    from base.conftest_android import *
-
-
 
 
 @pytest.fixture('package',autouse=True)
