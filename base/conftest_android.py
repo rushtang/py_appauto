@@ -34,12 +34,15 @@ def driverenv():
                     'automationName': 'UIAutomator2',
                     'noSign': True,
                     'recreateChromeDriverSessions': True,
-                    "unicodeKeyboard": "True",
+                    "unicodeKeyboard": True,
                     "noReset":True,
                     "fullReset":False,
                     "newCommandTimeout": 300
                     }
-
+    # systemPort=current_device.get('systemPort')
+    # if systemPort!=None:
+    #     capabilities['systemPort']=systemPort
+    #
     log.info('当前执行的appium相关配置为：'+str(capabilities))
 
     host=current_device.get('appiumserver')

@@ -24,6 +24,9 @@ class ElementActions:
         #通过driver.get_window_size()获取的分辨率会不准确，所以读取配置的Resolution
         self.Resolution =self.env.current_device.get('Resolution')
 
+        if self.Resolution==None:
+            self.Resolution=[1080, 1920]
+
         self.width =self.Resolution[0]
         self.height =self.Resolution[1]
 

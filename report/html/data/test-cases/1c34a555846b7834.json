@@ -1,0 +1,113 @@
+{
+  "uid" : "1c34a555846b7834",
+  "name" : "test_case1",
+  "fullName" : "tests.test_vedio.test_videorelease.Test_videorelease#test_case1",
+  "historyId" : "61d0ec5868142760393bb75a0ddaae70",
+  "time" : { },
+  "status" : "broken",
+  "statusMessage" : "TypeError: 'NoneType' object is not subscriptable",
+  "statusTrace" : ">       lambda: ihook(item=item, **kwds),\n        when=when,\n    )\n\n/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flaky/flaky_pytest_plugin.py:273: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nbase/conftest_android.py:58: in action\n    element_action=ElementActions(driverenv)\nbase/utils.py:15: in getinstance\n    instances[class_] = class_(*args, **kwargs)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <base.action.ElementActions object at 0x10a3ec908>, driver = <appium.webdriver.webdriver.WebDriver (session=\"8b6b7219-1412-4b2b-af2f-7d78654106ce\")>\n\n    def __init__(self, driver: webdriver.Remote):\n        self.driver = driver\n        self.env = EnvironmentAndroid()\n        #通过driver.get_window_size()获取的分辨率会不准确，所以读取配置的Resolution\n        self.Resolution =self.env.current_device.get('Resolution')\n    \n        if self.Resolution==None:\n            Resolution=[1080, 1920]\n    \n>       self.width =self.Resolution[0]\nE       TypeError: 'NoneType' object is not subscriptable\n\nbase/action.py:30: TypeError",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "action",
+    "time" : {
+      "start" : 1546833907614,
+      "stop" : 1546833907614,
+      "duration" : 0
+    },
+    "status" : "broken",
+    "statusMessage" : "TypeError: 'NoneType' object is not subscriptable\n",
+    "statusTrace" : "  File \"/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pluggy/callers.py\", line 187, in _multicall\n    res = hook_impl.function(*args)\n  File \"/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/_pytest/fixtures.py\", line 969, in pytest_fixture_setup\n    result = call_fixture_func(fixturefunc, request, kwargs)\n  File \"/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/_pytest/fixtures.py\", line 824, in call_fixture_func\n    res = next(it)\n  File \"/Users/tmh/PycharmProjects/appauto/base/conftest_android.py\", line 58, in action\n    element_action=ElementActions(driverenv)\n  File \"/Users/tmh/PycharmProjects/appauto/base/utils.py\", line 15, in getinstance\n    instances[class_] = class_(*args, **kwargs)\n  File \"/Users/tmh/PycharmProjects/appauto/base/action.py\", line 30, in __init__\n    self.width =self.Resolution[0]\n",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  }, {
+    "name" : "driverenv",
+    "time" : {
+      "start" : 1546833895152,
+      "stop" : 1546833907614,
+      "duration" : 12462
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "TypeError: 'NoneType' object is not subscriptable",
+    "statusTrace" : ">       lambda: ihook(item=item, **kwds),\n        when=when,\n    )\n\n/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flaky/flaky_pytest_plugin.py:273: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nbase/conftest_android.py:58: in action\n    element_action=ElementActions(driverenv)\nbase/utils.py:15: in getinstance\n    instances[class_] = class_(*args, **kwargs)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <base.action.ElementActions object at 0x10a3ec908>, driver = <appium.webdriver.webdriver.WebDriver (session=\"8b6b7219-1412-4b2b-af2f-7d78654106ce\")>\n\n    def __init__(self, driver: webdriver.Remote):\n        self.driver = driver\n        self.env = EnvironmentAndroid()\n        #通过driver.get_window_size()获取的分辨率会不准确，所以读取配置的Resolution\n        self.Resolution =self.env.current_device.get('Resolution')\n    \n        if self.Resolution==None:\n            Resolution=[1080, 1920]\n    \n>       self.width =self.Resolution[0]\nE       TypeError: 'NoneType' object is not subscriptable\n\nbase/action.py:30: TypeError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "6d704f1e86ebd4df",
+      "name" : "log",
+      "source" : "6d704f1e86ebd4df.txt",
+      "type" : "text/plain",
+      "size" : 546
+    }, {
+      "uid" : "3b5d712ca2cfa385",
+      "name" : "stdout",
+      "source" : "3b5d712ca2cfa385.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "71e3657056b93481",
+      "name" : "stderr",
+      "source" : "71e3657056b93481.txt",
+      "type" : "text/plain",
+      "size" : 0
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "tests.test_vedio"
+  }, {
+    "name" : "suite",
+    "value" : "test_videorelease"
+  }, {
+    "name" : "subSuite",
+    "value" : "Test_videorelease"
+  }, {
+    "name" : "host",
+    "value" : "tangmaoheng-deMacBook-Air.local"
+  }, {
+    "name" : "thread",
+    "value" : "14622-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_vedio.test_videorelease"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "1c34a555846b7834.json",
+  "parameterValues" : [ ]
+}

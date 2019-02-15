@@ -1,0 +1,11 @@
+INFO 14:38:46  当前执行的appium相关配置为：{'platformName': 'Android', 'platformVersion': '8.1.0', 'deviceName': '2425a80b', 'udid': '2425a80b', 'systemPort': 8201, 'app': '/Users/tmh/PycharmProjects/appauto/data/apk/jumei.apk', 'clearSystemFiles': True, 'appActivity': 'com.jm.android.jumei.home.activity.StartActivity', 'appPackage': 'com.jm.android.jumei', 'automationName': 'UIAutomator2', 'noSign': True, 'recreateChromeDriverSessions': True, 'unicodeKeyboard': True, 'noReset': True, 'fullReset': False, 'newCommandTimeout': 300} 
+
+INFO 14:38:57  ————————————————————————执行用例 ----------——————————————
+INFO 14:38:57  [点击]  页面【特卖首页】的元素【发布】 
+
+INFO 14:39:02  [点击]  页面【特卖首页】的元素【上传视频】 
+
+INFO 14:39:05  查找 页面【视频发布页】的元素【视频选择】
+INFO 14:39:06  sleep等待 1 s  
+
+INFO 14:39:09  ————————————————————————该用例执行结束 ----------——————————————

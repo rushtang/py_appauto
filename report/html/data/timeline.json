@@ -4,21 +4,21 @@
   "children" : [ {
     "name" : "tangmaoheng-deMacBook-Air.local",
     "children" : [ {
-      "name" : "10508-MainThread",
+      "name" : "15614-MainThread",
       "children" : [ {
         "name" : "test_case1",
-        "uid" : "a6c83ceb8e5aa98c",
-        "parentUid" : "3b431c137f754ef57a406c9c05f6fa3d",
+        "uid" : "b21acd4f81e0178b",
+        "parentUid" : "48c89c5e2b49cd547b6250d5ea6fdca2",
         "status" : "passed",
         "time" : {
-          "start" : 1546660677420,
-          "stop" : 1546660705562,
-          "duration" : 28142
+          "start" : 1546843185735,
+          "stop" : 1546843342535,
+          "duration" : 156800
         },
-        "flaky" : false,
+        "flaky" : true,
         "parameters" : [ ]
       } ],
-      "uid" : "3b431c137f754ef57a406c9c05f6fa3d"
+      "uid" : "48c89c5e2b49cd547b6250d5ea6fdca2"
     } ],
     "uid" : "577e26d22381ed8ab20093e9d6c8c9bf"
   } ]

@@ -1,0 +1,15 @@
+INFO 14:36:51  当前执行的appium相关配置为：{'platformName': 'Android', 'platformVersion': '8.1.0', 'deviceName': '2425a80b', 'udid': '2425a80b', 'systemPort': 8201, 'app': '/Users/tmh/PycharmProjects/appauto/data/apk/jumei.apk', 'clearSystemFiles': True, 'appActivity': 'com.jm.android.jumei.home.activity.StartActivity', 'appPackage': 'com.jm.android.jumei', 'automationName': 'UIAutomator2', 'noSign': True, 'recreateChromeDriverSessions': True, 'unicodeKeyboard': True, 'noReset': True, 'fullReset': False, 'newCommandTimeout': 300} 
+
+INFO 14:37:01  ————————————————————————执行用例 ----------——————————————
+INFO 14:37:01  [点击]  页面【特卖首页】的元素【发布】 
+
+INFO 14:37:07  [点击]  页面【特卖首页】的元素【上传视频】 
+
+INFO 14:37:10  [点击]  页面【视频发布页】的元素【发布】 
+
+ERROR 14:37:16  【视频发布页】页面中未能找到元素【发布】
+ locator: 
+ {'name': '发布', 'type': 'id', 'value': 'com.jm.android.jumei:id/social_publish_submit', 'dynamic': False, 'switch': None, 'page': '视频发布页'}
+INFO 14:37:16  sleep等待 1 s  
+
+INFO 14:37:19  ————————————————————————该用例执行结束 ----------——————————————

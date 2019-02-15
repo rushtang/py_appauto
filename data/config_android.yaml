@@ -1,25 +1,27 @@
 appium:
- app: /Users/jm-yf/PycharmProjects/appauto/apk/jumei_xiaomi_7305.apk
+ app: /Users/tmh/PycharmProjects/appauto/data/apk/jumei.apk
  appActivity:  com.jm.android.jumei.home.activity.StartActivity
  appPackage: com.jm.android.jumei
  version: '1.9.1'
- host: http://172.20.11.15:4723/wd/hub
+# host: http://172.20.11.15:4723/wd/hub
+ host: http://localhost:4723/wd/hub
+
 
 devices:
  device1:
-  deviceName: 192.168.56.101:5555
+  deviceName: 2425a80b
   platformName: Android
-  platformVersion: '6.0'
-  appiumserver: http://172.20.11.15:4723/wd/hub
+  platformVersion: '8.1.0'
+  appiumserver: http://localhost:4723/wd/hub
   systemPort: 8201
-  Resolution: [1080,1920]
+
 # device2:
-#  deviceName: 192.168.56.102:5555
+#  deviceName: 192.168.56.101:5555
 #  platformName: Android
 #  platformVersion: '6.0'
-#  appiumserver: http://172.20.11.11:4724/wd/hub
-#  systemPort: 8202
-
+#  appiumserver: http://172.20.11.11:4723/wd/hub
+#  systemPort: 8201
+#  Resolution: [1080,1920]
 
 path:
   tests: /Users/tmh/PycharmProjects/appauto/tests

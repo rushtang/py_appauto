@@ -1,0 +1,113 @@
+{
+  "uid" : "86e14bf2f8865824",
+  "name" : "test_case1",
+  "fullName" : "tests.test_vedio.test_videorelease.Test_videorelease#test_case1",
+  "historyId" : "61d0ec5868142760393bb75a0ddaae70",
+  "time" : { },
+  "status" : "broken",
+  "statusMessage" : "UnboundLocalError: local variable 'Resolution' referenced before assignment",
+  "statusTrace" : ">       lambda: ihook(item=item, **kwds),\n        when=when,\n    )\n\n/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flaky/flaky_pytest_plugin.py:273: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nbase/conftest_android.py:58: in action\n    element_action=ElementActions(driverenv)\nbase/utils.py:15: in getinstance\n    instances[class_] = class_(*args, **kwargs)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <base.action.ElementActions object at 0x10d55fd30>, driver = <appium.webdriver.webdriver.WebDriver (session=\"876b1911-5dd5-4d9c-9e00-333c4bd67da6\")>\n\n    def __init__(self, driver: webdriver.Remote):\n        self.driver = driver\n        self.env = EnvironmentAndroid()\n        #通过driver.get_window_size()获取的分辨率会不准确，所以读取配置的Resolution\n        self.Resolution =self.env.current_device.get('Resolution')\n    \n>       if Resolution==None:\nE       UnboundLocalError: local variable 'Resolution' referenced before assignment\n\nbase/action.py:27: UnboundLocalError",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "driverenv",
+    "time" : {
+      "start" : 1546833831871,
+      "stop" : 1546833843506,
+      "duration" : 11635
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "action",
+    "time" : {
+      "start" : 1546833843507,
+      "stop" : 1546833843507,
+      "duration" : 0
+    },
+    "status" : "broken",
+    "statusMessage" : "UnboundLocalError: local variable 'Resolution' referenced before assignment\n",
+    "statusTrace" : "  File \"/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pluggy/callers.py\", line 187, in _multicall\n    res = hook_impl.function(*args)\n  File \"/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/_pytest/fixtures.py\", line 969, in pytest_fixture_setup\n    result = call_fixture_func(fixturefunc, request, kwargs)\n  File \"/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/_pytest/fixtures.py\", line 824, in call_fixture_func\n    res = next(it)\n  File \"/Users/tmh/PycharmProjects/appauto/base/conftest_android.py\", line 58, in action\n    element_action=ElementActions(driverenv)\n  File \"/Users/tmh/PycharmProjects/appauto/base/utils.py\", line 15, in getinstance\n    instances[class_] = class_(*args, **kwargs)\n  File \"/Users/tmh/PycharmProjects/appauto/base/action.py\", line 27, in __init__\n    if Resolution==None:\n",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  } ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "UnboundLocalError: local variable 'Resolution' referenced before assignment",
+    "statusTrace" : ">       lambda: ihook(item=item, **kwds),\n        when=when,\n    )\n\n/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flaky/flaky_pytest_plugin.py:273: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nbase/conftest_android.py:58: in action\n    element_action=ElementActions(driverenv)\nbase/utils.py:15: in getinstance\n    instances[class_] = class_(*args, **kwargs)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <base.action.ElementActions object at 0x10d55fd30>, driver = <appium.webdriver.webdriver.WebDriver (session=\"876b1911-5dd5-4d9c-9e00-333c4bd67da6\")>\n\n    def __init__(self, driver: webdriver.Remote):\n        self.driver = driver\n        self.env = EnvironmentAndroid()\n        #通过driver.get_window_size()获取的分辨率会不准确，所以读取配置的Resolution\n        self.Resolution =self.env.current_device.get('Resolution')\n    \n>       if Resolution==None:\nE       UnboundLocalError: local variable 'Resolution' referenced before assignment\n\nbase/action.py:27: UnboundLocalError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "ab94871d11b3a4c2",
+      "name" : "log",
+      "source" : "ab94871d11b3a4c2.txt",
+      "type" : "text/plain",
+      "size" : 546
+    }, {
+      "uid" : "e3ce77b42d6a67bc",
+      "name" : "stdout",
+      "source" : "e3ce77b42d6a67bc.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "b449cc3f836fe944",
+      "name" : "stderr",
+      "source" : "b449cc3f836fe944.txt",
+      "type" : "text/plain",
+      "size" : 0
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "tests.test_vedio"
+  }, {
+    "name" : "suite",
+    "value" : "test_videorelease"
+  }, {
+    "name" : "subSuite",
+    "value" : "Test_videorelease"
+  }, {
+    "name" : "host",
+    "value" : "tangmaoheng-deMacBook-Air.local"
+  }, {
+    "name" : "thread",
+    "value" : "14497-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_vedio.test_videorelease"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "86e14bf2f8865824.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,97 @@
+INFO 14:39:35  当前执行的appium相关配置为：{'platformName': 'Android', 'platformVersion': '8.1.0', 'deviceName': '2425a80b', 'udid': '2425a80b', 'systemPort': 8201, 'app': '/Users/tmh/PycharmProjects/appauto/data/apk/jumei.apk', 'clearSystemFiles': True, 'appActivity': 'com.jm.android.jumei.home.activity.StartActivity', 'appPackage': 'com.jm.android.jumei', 'automationName': 'UIAutomator2', 'noSign': True, 'recreateChromeDriverSessions': True, 'unicodeKeyboard': True, 'noReset': True, 'fullReset': False, 'newCommandTimeout': 300} 
+
+INFO 14:39:45  ————————————————————————执行用例 ----------——————————————
+INFO 14:39:45  [点击]  页面【特卖首页】的元素【发布】 
+
+INFO 14:39:52  [点击]  页面【特卖首页】的元素【上传视频】 
+
+INFO 14:39:54  查找 页面【视频发布页】的元素【视频选择】 
+
+INFO 14:39:55  [点击]1次元素 <appium.webdriver.webelement.WebElement (session="dad8cef5-275e-40e5-8ea1-7744c9baa7df", element="8ef0ceb8-f7d7-494c-b417-875bc72695b7")> 
+
+INFO 14:39:56  [点击]  页面【视频发布页】的元素【选择后下一步】 
+
+INFO 14:39:58  [点击]  页面【视频发布页】的元素【处理后下一步】 
+
+INFO 14:40:00  sleep等待 7 s  
+
+INFO 14:40:07  [点击]  页面【视频发布页】的元素【视频发布】 
+
+INFO 14:40:25  当前页面成功找到toast: 视频发布成功 
+
+INFO 14:40:25  result: True 
+
+INFO 14:40:26  [点击]  页面【特卖首页】的元素【上传视频】 
+
+INFO 14:40:29  查找 页面【视频发布页】的元素【视频选择】 
+
+INFO 14:40:30  [点击]1次元素 <appium.webdriver.webelement.WebElement (session="dad8cef5-275e-40e5-8ea1-7744c9baa7df", element="495ab23b-87c5-47df-9d65-e4d5f8b474a2")> 
+
+INFO 14:40:30  [点击]  页面【视频发布页】的元素【选择后下一步】 
+
+INFO 14:40:32  [点击]  页面【视频发布页】的元素【处理后下一步】 
+
+INFO 14:40:34  sleep等待 7 s  
+
+INFO 14:40:41  [点击]  页面【视频发布页】的元素【视频发布】 
+
+INFO 14:40:52  当前页面成功找到toast: 视频发布成功 
+
+INFO 14:40:52  result: True 
+
+INFO 14:40:53  [点击]  页面【特卖首页】的元素【上传视频】 
+
+INFO 14:40:56  查找 页面【视频发布页】的元素【视频选择】 
+
+INFO 14:40:56  [点击]1次元素 <appium.webdriver.webelement.WebElement (session="dad8cef5-275e-40e5-8ea1-7744c9baa7df", element="97b4d506-f7ca-43a6-8de8-f4503aeb6e2e")> 
+
+INFO 14:40:57  [点击]  页面【视频发布页】的元素【选择后下一步】 
+
+INFO 14:40:59  [点击]  页面【视频发布页】的元素【处理后下一步】 
+
+INFO 14:41:01  sleep等待 7 s  
+
+INFO 14:41:08  [点击]  页面【视频发布页】的元素【视频发布】 
+
+INFO 14:41:19  当前页面成功找到toast: 视频发布成功 
+
+INFO 14:41:19  result: True 
+
+INFO 14:41:21  [点击]  页面【特卖首页】的元素【上传视频】 
+
+INFO 14:41:24  查找 页面【视频发布页】的元素【视频选择】 
+
+INFO 14:41:24  [点击]1次元素 <appium.webdriver.webelement.WebElement (session="dad8cef5-275e-40e5-8ea1-7744c9baa7df", element="3a182990-fb06-498c-acc2-a2e3fefe8c67")> 
+
+INFO 14:41:24  [点击]  页面【视频发布页】的元素【选择后下一步】 
+
+INFO 14:41:27  [点击]  页面【视频发布页】的元素【处理后下一步】 
+
+INFO 14:41:28  sleep等待 7 s  
+
+INFO 14:41:35  [点击]  页面【视频发布页】的元素【视频发布】 
+
+INFO 14:41:49  当前页面成功找到toast: 视频发布成功 
+
+INFO 14:41:49  result: True 
+
+INFO 14:41:50  [点击]  页面【特卖首页】的元素【上传视频】 
+
+INFO 14:41:53  查找 页面【视频发布页】的元素【视频选择】 
+
+INFO 14:41:54  [点击]1次元素 <appium.webdriver.webelement.WebElement (session="dad8cef5-275e-40e5-8ea1-7744c9baa7df", element="d9b57f2c-67a2-4e9c-a1c1-af6d3c40137d")> 
+
+INFO 14:41:54  [点击]  页面【视频发布页】的元素【选择后下一步】 
+
+INFO 14:41:56  [点击]  页面【视频发布页】的元素【处理后下一步】 
+
+INFO 14:41:58  sleep等待 7 s  
+
+INFO 14:42:05  [点击]  页面【视频发布页】的元素【视频发布】 
+
+INFO 14:42:20  当前页面成功找到toast: 视频发布成功 
+
+INFO 14:42:20  result: True
+INFO 14:42:22  sleep等待 1 s  
+
+INFO 14:42:24  ————————————————————————该用例执行结束 ----------——————————————

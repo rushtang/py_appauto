@@ -1,32 +1,14 @@
 [ {
-  "values" : [ "/Users/jm-yf/PycharmProjects/appauto/apk/jumei_xiaomi_7305.apk" ],
-  "name" : "appium.app"
-}, {
-  "values" : [ "http://172.20.11.15:4723/wd/hub" ],
-  "name" : "device1.appiumserver"
-}, {
-  "values" : [ "[1080, 1920]" ],
-  "name" : "device1.Resolution"
-}, {
-  "values" : [ "Android" ],
-  "name" : "device1.platformName"
-}, {
-  "values" : [ "android" ],
-  "name" : "platform.run"
-}, {
-  "values" : [ "/Users/tmh/PycharmProjects/appauto/tests" ],
-  "name" : "path.tests"
-}, {
-  "values" : [ "1.9.1" ],
-  "name" : "appium.version"
-}, {
-  "values" : [ "192.168.56.101:5555" ],
-  "name" : "device1.deviceName"
-}, {
-  "values" : [ "6.0" ],
+  "values" : [ "8.1.0" ],
   "name" : "device1.platformVersion"
 }, {
-  "values" : [ "http://172.20.11.15:4723/wd/hub" ],
+  "values" : [ "/Users/tmh/PycharmProjects/appauto/data/apk/jumei.apk" ],
+  "name" : "appium.app"
+}, {
+  "values" : [ "http://localhost:4723/wd/hub" ],
+  "name" : "device1.appiumserver"
+}, {
+  "values" : [ "http://localhost:4723/wd/hub" ],
   "name" : "appium.host"
 }, {
   "values" : [ "/Users/tmh/PycharmProjects/appauto/report" ],
@@ -35,9 +17,24 @@
   "values" : [ "com.jm.android.jumei" ],
   "name" : "appium.appPackage"
 }, {
+  "values" : [ "Android" ],
+  "name" : "device1.platformName"
+}, {
+  "values" : [ "android" ],
+  "name" : "platform.run"
+}, {
   "values" : [ "com.jm.android.jumei.home.activity.StartActivity" ],
   "name" : "appium.appActivity"
 }, {
   "values" : [ "8201" ],
   "name" : "device1.systemPort"
+}, {
+  "values" : [ "/Users/tmh/PycharmProjects/appauto/tests" ],
+  "name" : "path.tests"
+}, {
+  "values" : [ "1.9.1" ],
+  "name" : "appium.version"
+}, {
+  "values" : [ "2425a80b" ],
+  "name" : "device1.deviceName"
 } ]

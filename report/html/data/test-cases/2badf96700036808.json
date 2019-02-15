@@ -1,0 +1,181 @@
+{
+  "uid" : "2badf96700036808",
+  "name" : "test_case1",
+  "fullName" : "tests.test_vedio.test_videorelease.Test_videorelease#test_case1",
+  "historyId" : "61d0ec5868142760393bb75a0ddaae70",
+  "time" : {
+    "start" : 1546843137419,
+    "stop" : 1546843146535,
+    "duration" : 9116
+  },
+  "status" : "broken",
+  "statusMessage" : "TypeError: 'WebElement' object does not support indexing",
+  "statusTrace" : "self = <test_vedio.test_videorelease.Test_videorelease object at 0x10c611240>, action = <base.action.ElementActions object at 0x10c635eb8>\n\n    def test_case1(self,action):\n        count=5\n        action.click(p.特卖首页.发布)\n    \n        for index in range(count):\n            action.click(p.特卖首页.发布_上传视频)\n>           videoele=action.find_ele(vp.视频发布页.视频选择)[0]\nE           TypeError: 'WebElement' object does not support indexing\n\ntests/test_vedio/test_videorelease.py:19: TypeError",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "action",
+    "time" : {
+      "start" : 1546843137417,
+      "stop" : 1546843137418,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "driverenv",
+    "time" : {
+      "start" : 1546843126673,
+      "stop" : 1546843137417,
+      "duration" : 10744
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "caserun",
+    "time" : {
+      "start" : 1546843137418,
+      "stop" : 1546843137418,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "suitinit",
+    "time" : {
+      "start" : 1546843137418,
+      "stop" : 1546843137418,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "TypeError: 'WebElement' object does not support indexing",
+    "statusTrace" : "self = <test_vedio.test_videorelease.Test_videorelease object at 0x10c611240>, action = <base.action.ElementActions object at 0x10c635eb8>\n\n    def test_case1(self,action):\n        count=5\n        action.click(p.特卖首页.发布)\n    \n        for index in range(count):\n            action.click(p.特卖首页.发布_上传视频)\n>           videoele=action.find_ele(vp.视频发布页.视频选择)[0]\nE           TypeError: 'WebElement' object does not support indexing\n\ntests/test_vedio/test_videorelease.py:19: TypeError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "e0c69be8f1448ca3",
+      "name" : "log",
+      "source" : "e0c69be8f1448ca3.txt",
+      "type" : "text/plain",
+      "size" : 1126
+    }, {
+      "uid" : "bed1b75cd7491c29",
+      "name" : "stdout",
+      "source" : "bed1b75cd7491c29.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "6c7820d70b256863",
+      "name" : "stderr",
+      "source" : "6c7820d70b256863.txt",
+      "type" : "text/plain",
+      "size" : 0
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "action::0",
+    "time" : {
+      "start" : 1546843149537,
+      "stop" : 1546843149874,
+      "duration" : 337
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "caserun::0",
+    "time" : {
+      "start" : 1546843146619,
+      "stop" : 1546843149534,
+      "duration" : 2915
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "aba9b39786212361",
+      "name" : "用例结束前的截图_14:39:09_.png",
+      "source" : "aba9b39786212361.png",
+      "type" : "image/png",
+      "size" : 1516215
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "tests.test_vedio"
+  }, {
+    "name" : "suite",
+    "value" : "test_videorelease"
+  }, {
+    "name" : "subSuite",
+    "value" : "Test_videorelease"
+  }, {
+    "name" : "host",
+    "value" : "tangmaoheng-deMacBook-Air.local"
+  }, {
+    "name" : "thread",
+    "value" : "15490-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_vedio.test_videorelease"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "2badf96700036808.json",
+  "parameterValues" : [ ]
+}

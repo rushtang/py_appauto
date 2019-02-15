@@ -2,28 +2,28 @@
   "uid" : "98d3104e051c652961429bf95fa0b5d6",
   "name" : "suites",
   "children" : [ {
-    "name" : "tests.test_usercenter",
+    "name" : "tests.test_vedio",
     "children" : [ {
-      "name" : "test_returngoods",
+      "name" : "test_videorelease",
       "children" : [ {
-        "name" : "Test_debug",
+        "name" : "Test_videorelease",
         "children" : [ {
           "name" : "test_case1",
-          "uid" : "a6c83ceb8e5aa98c",
-          "parentUid" : "0ea28e3ba4b5b1ef92d09e80c4aa66e2",
+          "uid" : "b21acd4f81e0178b",
+          "parentUid" : "d515a6a38946c3b460291a40b998c7f7",
           "status" : "passed",
           "time" : {
-            "start" : 1546660677420,
-            "stop" : 1546660705562,
-            "duration" : 28142
+            "start" : 1546843185735,
+            "stop" : 1546843342535,
+            "duration" : 156800
           },
-          "flaky" : false,
+          "flaky" : true,
           "parameters" : [ ]
         } ],
-        "uid" : "0ea28e3ba4b5b1ef92d09e80c4aa66e2"
+        "uid" : "d515a6a38946c3b460291a40b998c7f7"
       } ],
-      "uid" : "b0c69e22cccdc569e7a5c3beeccace08"
+      "uid" : "b7d6271ab37e1e88fded0a55ed697df1"
     } ],
-    "uid" : "64527128bd3dd8fe1dce97812a6cc37d"
+    "uid" : "c1f82c4d30338d8578cbc977fea9ed65"
   } ]
 }
