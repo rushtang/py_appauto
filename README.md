@@ -9,10 +9,6 @@
 
 ## 需要安装的
 ```brew install allure-commandline``` （生成allure报告的工具）
-requment.txt里面的第三方包
-=======
-## 需要安装的
-```brew install allure-commandline``` （生成allure报告的工具）
 通过pycharm直接安装requment.txt里面的第三方包
 
 ```
