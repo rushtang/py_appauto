@@ -8,8 +8,9 @@
 
 
 ## 需要安装的
-```brew install allure-commandline``` （生成allure报告的工具）
-通过pycharm直接安装requment.txt里面的第三方包
+```brew install allure-commandline``` （生成allure报告的工具）  
+
+安装requment.txt里面的第三方包
 
 ```
 selenium==3.14.1
