@@ -74,8 +74,8 @@ class CategoryListPage(BasePage):
     def load_android(self):
         self.activity="com.jumei.list.category.CategoryListActivity"
 
-    self.搜索输入框=get_locator(self.name,"搜索输入框",'id','com.jm.android.jumei:id/search_input')
-    self.搜索按钮=get_locator(self.name,"搜索按钮",'id','com.jm.android.jumei:id/search_bt')
+        self.搜索输入框=get_locator(self.name,"搜索输入框",'id','com.jm.android.jumei:id/search_input')
+        self.搜索按钮=get_locator(self.name,"搜索按钮",'id','com.jm.android.jumei:id/search_bt')
 ```
 get_locator方法返回元素实例（dict），元素包含有属性：page名、元素名、元素定位方式、定位参数、是否是动态（默认为静态），传参时一般只需要传page名、元素名、元素定位方式、定位参数  
 
