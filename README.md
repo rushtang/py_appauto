@@ -1,4 +1,4 @@
-## 解决的痛点
+## 已解决的痛点
 1、pageobject分层时,page的组织和层级  
 2、元素定位:通过父节点找子节点、通过子节点确定父节点、找兄弟节点  
 3、多设备分配测试任务运行  
@@ -137,3 +137,6 @@ run class case:
     ```python3 run.py  test/test_demo.py::Test_demo```  
 run class::method case:  
     ```python3 run.py  test/test_demo.py::Test_demo::test_home```  
+
+#待完善
+ios兼容
