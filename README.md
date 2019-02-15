@@ -60,6 +60,7 @@ class ProductPages:
 ```
 
 **创建page类**(继承basepage类)，必填属性：name ，实现基类方法：load_android、load_ios （先不用这个） 
+ 
 **load_android格式**：  
  ```
 #productpage.py
