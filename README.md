@@ -1,4 +1,4 @@
-## 解决的痛点
+## 已解决的痛点
 1、pageobject分层时,page的组织和层级  
 2、元素定位:通过父节点找子节点、通过子节点确定父节点、找兄弟节点  
 3、多设备分配测试任务运行  
@@ -8,8 +8,9 @@
 
 
 ## 需要安装的
-```brew install allure-commandline``` （生成allure报告的工具）
-通过pycharm直接安装requment.txt里面的第三方包
+```brew install allure-commandline``` （生成allure报告的工具）  
+
+安装requment.txt里面的第三方包
 
 ```
 selenium==3.14.1
@@ -73,8 +74,8 @@ class CategoryListPage(BasePage):
     def load_android(self):
         self.activity="com.jumei.list.category.CategoryListActivity"
 
-    self.搜索输入框=get_locator(self.name,"搜索输入框",'id','com.jm.android.jumei:id/search_input')
-    self.搜索按钮=get_locator(self.name,"搜索按钮",'id','com.jm.android.jumei:id/search_bt')
+        self.搜索输入框=get_locator(self.name,"搜索输入框",'id','com.jm.android.jumei:id/search_input')
+        self.搜索按钮=get_locator(self.name,"搜索按钮",'id','com.jm.android.jumei:id/search_bt')
 ```
 get_locator方法返回元素实例（dict），元素包含有属性：page名、元素名、元素定位方式、定位参数、是否是动态（默认为静态），传参时一般只需要传page名、元素名、元素定位方式、定位参数  
 
@@ -137,3 +138,6 @@ run class case:
     ```python3 run.py  test/test_demo.py::Test_demo```  
 run class::method case:  
     ```python3 run.py  test/test_demo.py::Test_demo::test_home```  
+
+### 待完善
+ios兼容
